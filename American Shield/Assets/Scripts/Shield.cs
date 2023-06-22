@@ -22,7 +22,7 @@ public class Shield : MonoBehaviour
 
     void Awake()
     {
-        mainCamera = Camera.main;    
+        mainCamera = Camera.main;
     }
 
     void Update()
@@ -66,6 +66,8 @@ public class Shield : MonoBehaviour
         if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance, enemyLayer))
         {
             MoveShieldTo(raycastHit.point);
+            raycastHit.transform.GetComponent<EnemyMovement>().ApplyDamage(100);
+           // raycastHit.transform.GetComponent<EnemyMovement>().GetHit();
         }
         else
         {
@@ -92,7 +94,7 @@ public class Shield : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                StartHolding();   
+                StartHolding();
             }
         }
     }
