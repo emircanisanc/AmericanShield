@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+[RequireComponent(typeof(Animator))]
 public class Shield : MonoBehaviour
 {
     [SerializeField] float shieldThrowDistance = 10f;
     [SerializeField] float shieldMoveDuration = 2.5f;
+    [SerializeField] int damage = 100;
+    [SerializeField] float dragSpeed = 0.5f;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] Vector3 throwAngle;
 
+    public bool IsBlocking { get { return isHoldingShield && Time.time - holdingStartTime < 0.5f; } }
+
+    Animator animator;
     Sequence sequence;
     Camera mainCamera;
     Vector3 shieldStartLocalPos;
@@ -23,6 +29,8 @@ public class Shield : MonoBehaviour
     void Awake()
     {
         mainCamera = Camera.main;
+        animator = GetComponent<Animator>();
+        shieldStartLocalPos = transform.localPosition;
     }
 
     void Update()
@@ -50,6 +58,16 @@ public class Shield : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
             touchEndPos = touch.position;
+            Vector3 touchInput = touch.deltaPosition;
+
+            // Calculate the movement direction
+            Vector3 movement = new Vector3(touchInput.x, touchInput.y, 0).normalized;
+
+            // Move the shield relative to its current position
+            Vector3 newPosition = transform.localPosition + movement * dragSpeed * Time.deltaTime;
+            newPosition.y = Mathf.Clamp(newPosition.y, 0.8f, 1.5f);
+            newPosition.x = Mathf.Clamp(newPosition.x, -0.2f, 0.2f);
+            transform.localPosition = new Vector3(newPosition.x, newPosition.y, transform.localPosition.z);
         }
         else
         {
@@ -59,15 +77,14 @@ public class Shield : MonoBehaviour
 
     private void ThrowShield()
     {
-        shieldStartLocalPos = transform.localPosition;
         shieldStartAngle = transform.eulerAngles;
         RaycastHit raycastHit;
         Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
         if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance, enemyLayer))
         {
             MoveShieldTo(raycastHit.point);
-            raycastHit.transform.GetComponent<EnemyMovement>().ApplyDamage(100);
-           // raycastHit.transform.GetComponent<EnemyMovement>().GetHit();
+            //            raycastHit.transform.GetComponent<EnemyMovement>().ApplyDamage(100);
+            // raycastHit.transform.GetComponent<EnemyMovement>().GetHit();
         }
         else
         {
@@ -75,15 +92,19 @@ public class Shield : MonoBehaviour
         }
         isHoldingShield = false;
         isShieldOnHand = false;
+        animator.SetTrigger("Throw");
     }
 
     private void MoveShieldTo(Vector3 pos)
     {
         Vector4 targetAngle = throwAngle + new Vector3(Random.Range(-15, 15f),
          Random.Range(-15, 15f), Random.Range(-15, 15f));
+        float moveDuration = Mathf.Lerp(shieldMoveDuration / 3,
+         shieldMoveDuration,
+          (transform.position - pos).magnitude / shieldThrowDistance);
         sequence = DOTween.Sequence();
-        sequence.Append(transform.DORotate(targetAngle, 1f));
-        sequence.Join(transform.DOMove(pos, shieldMoveDuration));
+        sequence.Append(transform.DORotate(targetAngle, moveDuration, RotateMode.FastBeyond360));
+        sequence.Join(transform.DOMove(pos, moveDuration).SetEase(Ease.OutFlash));
         sequence.OnComplete(() => TurnBack());
     }
 
@@ -101,6 +122,7 @@ public class Shield : MonoBehaviour
 
     private void StartHolding()
     {
+        animator.SetTrigger("StartHolding");
         isHoldingShield = true;
         holdingStartTime = Time.time;
     }
@@ -116,6 +138,7 @@ public class Shield : MonoBehaviour
 
     private void TurnBack()
     {
+        //animator.SetTrigger("Idle");
         isShieldTurningBack = true;
         sequence = DOTween.Sequence();
         sequence.Append(transform.DOLocalMove(shieldStartLocalPos, shieldMoveDuration / 2));
@@ -125,20 +148,42 @@ public class Shield : MonoBehaviour
 
     private void OnShieldTurnedBack()
     {
+        animator.SetTrigger("Idle");
         isShieldOnHand = true;
         isShieldTurningBack = false;
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        if (!isShieldTurningBack)
+        if (!isShieldTurningBack && !isShieldOnHand)
         {
             sequence.Kill();
             TurnBack();
         }
-        if (other.collider.TryGetComponent<IDamageable>(out var damageable))
+        if (other.TryGetComponent<IDamageable>(out var damageable))
         {
-            damageable.ApplyDamage(5);
+            if (!isShieldOnHand)
+                damageable.ApplyDamage(damage);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.TryGetComponent<IDamager>(out var damager))
+        {
+            if (damager.IsAttacking())
+            {
+                if (IsBlocking)
+                {
+                    damager.TurnAttackBack();
+                    animator.SetTrigger("BlockAttack");
+                }
+                else if (isHoldingShield)
+                {
+                    damager.BlockAttack();
+                }
+
+            }
         }
     }
 
