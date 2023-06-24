@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     [SerializeField] private float movementSpeed = 2f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float attackDuration;
+    [SerializeField] private float hitAnimTime = 0.6f;
 
     public Action OnEnemyDie;
 
@@ -21,6 +22,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     private float nextDamageTime;
     private bool isAttacking;
     private bool isAttackBlocked;
+    private bool isHurt;
 
     private void Awake()
     {
@@ -35,19 +37,22 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     {
         if (isLife)
         {
-            FindDistance();
-            if (distanceAttack)
+            if (!isHurt)
             {
-                if (Time.time >= nextDamageTime)
+                FindDistance();
+                if (distanceAttack)
                 {
-                    if (!isAttackBlocked)
+                    if (Time.time >= nextDamageTime)
                     {
-                        isAttacking = true;
-                        // APPLY DAMAGE TO ENEMY
+                        if (!isAttackBlocked)
+                        {
+                            isAttacking = true;
+                            // APPLY DAMAGE TO ENEMY
+                        }
+                        Invoke("StopAttack", attackDuration / 2);
+                        nextDamageTime = Time.time + attackDuration;
                     }
-                    Invoke("StopAttack", attackDuration / 2);
-                    nextDamageTime = Time.time + attackDuration;
-                }
+                }   
             }
         }
     }
@@ -84,6 +89,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     }
     public void GetHit()
     {
+        isHurt = true;
         animator.SetBool("isGetHit", true);
         animator.SetBool("isAttack", false);
         animator.SetBool("isWalk", false);
@@ -124,11 +130,16 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
             DeadStates();
             animator.SetTrigger("isDie");
         }
+        else
+        {
+            GetHit();
+        }
     }
     IEnumerator GetHitAnim()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(hitAnimTime);
         animator.SetBool("isGetHit", false);
+        isHurt = false;
     }
     IEnumerator AnimationsStarts()
     {
