@@ -8252,7 +8252,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9f9711f876259344d832f855b9de3a92, type: 2}
+  - {fileID: 2100000, guid: 2cf3a304f14c489409352b0cf87589ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17699,7 +17699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 100
-  movementSpeed: 2
+  movementSpeed: 5
   rotationSpeed: 10
 <<<<<<< Updated upstream
 =======
@@ -17749,7 +17749,7 @@ Transform:
   m_GameObject: {fileID: 1187531912}
 <<<<<<< Updated upstream
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.61, y: 0.5, z: -0.99}
+  m_LocalPosition: {x: -1.61, y: 0.5, z: 0.85}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
 =======
@@ -40971,7 +40971,7 @@ Transform:
   m_GameObject: {fileID: 6307800998514127950}
 <<<<<<< Updated upstream
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.19, y: 0.5, z: 2.24}
+  m_LocalPosition: {x: 1.19, y: 0.5, z: 5.89}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
 =======
@@ -41005,7 +41005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 100
-  movementSpeed: 4
+  movementSpeed: 5
   rotationSpeed: 10
 <<<<<<< Updated upstream
 =======
