@@ -1,17 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
+public class EnemyMovement : MonoBehaviour, IDamageable
 {
     [SerializeField] private int enemyHp = 100;
     [SerializeField] private float movementSpeed = 2f;
     [SerializeField] private float rotationSpeed = 10f;
-    [SerializeField] private float attackDuration;
-    [SerializeField] private float hitAnimTime = 0.6f;
-
-    public Action OnEnemyDie;
 
     private Animator animator;
     private Rigidbody rigidBody;
@@ -19,10 +14,6 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     private bool isLife = true;
     private bool distanceWalk;
     private bool distanceAttack;
-    private float nextDamageTime;
-    private bool isAttacking;
-    private bool isAttackBlocked;
-    private bool isHurt;
 
     private void Awake()
     {
@@ -37,30 +28,12 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     {
         if (isLife)
         {
-            if (!isHurt)
-            {
-                FindDistance();
-                if (distanceAttack)
-                {
-                    if (Time.time >= nextDamageTime)
-                    {
-                        if (!isAttackBlocked)
-                        {
-                            isAttacking = true;
-                            // APPLY DAMAGE TO ENEMY
-                        }
-                        Invoke("StopAttack", attackDuration / 2);
-                        nextDamageTime = Time.time + attackDuration;
-                    }
-                }   
-            }
+            FindDistance();
         }
-    }
-
-    private void StopAttack()
-    {
-        isAttacking = false;
-        isAttackBlocked = false;
+        else
+        {
+            DeadStates();
+        }
     }
 
     private void Walk()
@@ -80,16 +53,11 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     {
         animator.SetBool("isAttack", true);
         animator.SetBool("isWalk", false);
-        if (!distanceAttack)
-        {
-            distanceAttack = true;
-            distanceWalk = false;
-            nextDamageTime = Time.time + attackDuration;
-        }
+        distanceAttack = true;
+        distanceWalk = false;
     }
     public void GetHit()
     {
-        isHurt = true;
         animator.SetBool("isGetHit", true);
         animator.SetBool("isAttack", false);
         animator.SetBool("isWalk", false);
@@ -102,12 +70,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         animator.SetBool("isAttack", false);
         distanceWalk = false;
         distanceAttack = false;
-        Invoke("CallDieEvent", 2f);
         Destroy(this.gameObject, 3f);
-    }
-    private void CallDieEvent()
-    {
-        OnEnemyDie?.Invoke();
     }
     private void FindDistance()
     {
@@ -124,44 +87,21 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     public void ApplyDamage(int damage)
     {
         enemyHp -= damage;
-        if (enemyHp <= 0 && isLife)
+        if (enemyHp <= 0)
         {
             isLife = false;
-            DeadStates();
             animator.SetTrigger("isDie");
-        }
-        else
-        {
-            GetHit();
         }
     }
     IEnumerator GetHitAnim()
     {
-        yield return new WaitForSeconds(hitAnimTime);
+        yield return new WaitForSeconds(1.5f);
         animator.SetBool("isGetHit", false);
-        isHurt = false;
     }
     IEnumerator AnimationsStarts()
     {
         yield return new WaitForSeconds(2f);
         distanceWalk = true;
         animator.SetBool("isWalk", true);
-    }
-
-    public bool IsAttacking()
-    {
-        return isAttacking;
-    }
-
-    public void TurnAttackBack()
-    {
-        isAttacking = false;
-        isAttackBlocked = true;
-        ApplyDamage(enemyHp);
-    }
-    
-    public void BlockAttack()
-    {
-        isAttackBlocked = true;
     }
 }
