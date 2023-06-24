@@ -6,4 +6,5 @@ public interface IDamager
 {
     public bool IsAttacking();
     public void TurnAttackBack();
+    public void BlockAttack();
 }

@@ -21,4 +21,9 @@ public class Projectile : MonoBehaviour, IDamager
     {
         rb.velocity = -rb.velocity;
     }
+
+    public void BlockAttack()
+    {
+        Destroy(gameObject);   
+    }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 810741608463539594}
   - component: {fileID: 810741608463539605}
   - component: {fileID: 999930861997027790}
+  - component: {fileID: 3152186049231448353}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -43,7 +44,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810741608463539607}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.35
@@ -78,10 +79,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldThrowDistance: 10
   shieldMoveDuration: 0.8
+  damage: 100
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  throwAngle: {x: 250, y: 400, z: 360}
+  throwAngle: {x: 250, y: 0, z: 100}
+--- !u!95 &3152186049231448353
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810741608463539607}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ac8e47fb70ec2643a7fcf8d348ad08e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5109183357400305603
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,8 +130,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5109183357400305603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: -0.02, y: 0.07, z: -0.07}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 810741608463539604}
