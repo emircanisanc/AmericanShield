@@ -47,8 +47,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.35
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.26065052
+  m_Center: {x: -0.000000001168233, y: 0.08934951, z: -5.875218e-10}
 --- !u!54 &810741608463539605
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -80,6 +80,7 @@ MonoBehaviour:
   shieldThrowDistance: 10
   shieldMoveDuration: 0.8
   damage: 100
+  dragSpeed: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -165,8 +166,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9710d443dd18a0409fbaf2d24d89a27, type: 2}
-  - {fileID: 2100000, guid: cd6670bcb96615e4495c01969da912eb, type: 2}
+  - {fileID: 2100000, guid: e8b51f7e7d0fb1b439d823711b64e04c, type: 2}
+  - {fileID: 2100000, guid: 966a0c9f88d22f348a9d058da2fd41e6, type: 2}
   - {fileID: 2100000, guid: 2b5809e618bdf7f4abe85e02050de57b, type: 2}
   - {fileID: 2100000, guid: 55644acc8f97213488a9fd08cd89f945, type: 2}
   - {fileID: 2100000, guid: f6e88351e4f68234a8a379bb01aceb32, type: 2}

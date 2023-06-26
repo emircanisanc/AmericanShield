@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     [SerializeField] private float movementSpeed = 2f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float attackDuration;
-    [SerializeField] private float hitAnimTime = 0.6f;
+    [SerializeField] private float hitAnimTime = 0.5f;
 
     public Action OnEnemyDie;
 
@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(AnimationsStarts());
+       //  StartCoroutine(AnimationsStarts());
     }
 
 

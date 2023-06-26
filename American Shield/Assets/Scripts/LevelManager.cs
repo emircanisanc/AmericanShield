@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,10 +13,17 @@ public class LevelManager : MonoBehaviour
     public Action OnLevelEnd;
     int currentState = -1;
     int currentEnemyCount;
+    string sceneName;
+    string sceneNum;
+    int sceneNumInt;
 
     void Start()
     {
         NextState();
+        sceneName = SceneManager.GetActiveScene().name;
+        sceneNum = String.Concat(sceneName.Where(char.IsDigit));
+        sceneNumInt = int.Parse(sceneNum);
+        Debug.Log(sceneNum);
     }
 
     private void Counter()
@@ -24,6 +33,10 @@ public class LevelManager : MonoBehaviour
         {
             StartState();
         }
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(sceneNumInt);
     }
 
     private void StartState()
