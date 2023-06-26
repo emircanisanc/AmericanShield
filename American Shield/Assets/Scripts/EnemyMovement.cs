@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
-       //  StartCoroutine(AnimationsStarts());
+        //  StartCoroutine(AnimationsStarts());
     }
 
 
@@ -52,7 +52,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
                         Invoke("StopAttack", attackDuration / 2);
                         nextDamageTime = Time.time + attackDuration;
                     }
-                }   
+                }
             }
         }
     }
@@ -73,7 +73,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         animator.SetBool("isAttack", false);
         animator.SetBool("isWalk", true);
-        Vector3 movement = transform.forward * movementSpeed * Time.deltaTime;
+        Vector3 movement = transform.forward * movementSpeed * Time.deltaTime*0.75f;
         rigidBody.MovePosition(transform.position + movement);
     }
     private void Attack()
@@ -102,9 +102,12 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         animator.SetBool("isAttack", false);
         distanceWalk = false;
         distanceAttack = false;
+        GetComponent<Collider>().enabled = false; 
+        rigidBody.isKinematic = true; 
         Invoke("CallDieEvent", 2f);
-        Destroy(this.gameObject, 3f);
+        //Destroy(this.gameObject, 3f);
     }
+
     private void CallDieEvent()
     {
         OnEnemyDie?.Invoke();
@@ -159,7 +162,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         isAttackBlocked = true;
         ApplyDamage(enemyHp);
     }
-    
+
     public void BlockAttack()
     {
         isAttackBlocked = true;

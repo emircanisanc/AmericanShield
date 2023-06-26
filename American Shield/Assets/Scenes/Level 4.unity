@@ -1996,7 +1996,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &34041112
 MonoBehaviour:
@@ -2045,62 +2045,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: '
-
-    Transform ''hand_l'' has been deleted
-
-    Transform ''lowerarm_l''
-    has been deleted
-
-    Transform ''upperarm_l'' has been deleted
-
-    Transform
-    ''clavicle_l'' has been deleted
-
-    Transform ''hand_r'' has been deleted
-
-    Transform
-    ''lowerarm_r'' has been deleted
-
-    Transform ''upperarm_r'' has been deleted
-
-    Transform
-    ''clavicle_r'' has been deleted
-
-    Transform ''neck_01'' has been deleted
-
-    Transform
-    ''spine_03'' has been deleted
-
-    Transform ''spine_02'' has been deleted
-
-    Transform
-    ''spine_01'' has been deleted
-
-    Transform ''ball_l'' has been deleted
-
-    Transform
-    ''foot_l'' has been deleted
-
-    Transform ''calf_l'' has been deleted
-
-    Transform
-    ''thigh_l'' has been deleted
-
-    Transform ''ball_r'' has been deleted
-
-    Transform
-    ''foot_r'' has been deleted
-
-    Transform ''calf_r'' has been deleted
-
-    Transform
-    ''thigh_r'' has been deleted
-
-    Transform ''pelvis'' has been deleted
-
-    Transform
-    ''root'' has been deleted'
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -7870,7 +7815,7 @@ Transform:
   - {fileID: 216670112}
   - {fileID: 1620542385}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &124208756
 GameObject:
@@ -13500,7 +13445,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 20.78461
+  m_FocalLength: 17.137775
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -13509,7 +13454,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 250
-  field of view: 60.000004
+  field of view: 70.00001
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -14706,7 +14651,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &240177906
 MonoBehaviour:
@@ -21694,7 +21639,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &356822797
 MonoBehaviour:
@@ -26337,7 +26282,7 @@ Transform:
   - {fileID: 1255610899}
   - {fileID: 1063184916}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &434830384
 GameObject:
@@ -48802,8 +48747,8 @@ MonoBehaviour:
     - {fileID: 1614932056}
     - {fileID: 1699265763}
   - enemies:
-    - {fileID: 2015814770}
     - {fileID: 1241213865}
+    - {fileID: 2015814770}
   moveStateGroups:
   - playerMoveStates:
     - moveState: 0
@@ -48890,7 +48835,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &787354708
 GameObject:
@@ -50246,6 +50191,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1094221711, guid: d4210d02a14e37c4b831cecbddbee857, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 786243319}
+    - target: {fileID: 1094221711, guid: d4210d02a14e37c4b831cecbddbee857, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 9072172708891862361, guid: d4210d02a14e37c4b831cecbddbee857,
         type: 3}
       propertyPath: m_Name
@@ -50264,7 +50217,7 @@ PrefabInstance:
     - target: {fileID: 9072172708891862365, guid: d4210d02a14e37c4b831cecbddbee857,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9072172708891862365, guid: d4210d02a14e37c4b831cecbddbee857,
         type: 3}
@@ -50396,75 +50349,6 @@ Transform:
   m_Father: {fileID: 1442186443}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &816397017
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2419043527781987115, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_Name
-      value: C09
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -23.423397
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 44.50615
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -152.57277
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087775997737003409, guid: 8e27127a1bf5f3f4c9e78e45674d843e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8e27127a1bf5f3f4c9e78e45674d843e, type: 3}
 --- !u!1 &816656937
 GameObject:
   m_ObjectHideFlags: 0
@@ -57500,7 +57384,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &949560344
 MonoBehaviour:
@@ -57515,7 +57399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 100
-  movementSpeed: 5
+  movementSpeed: 4
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -57549,62 +57433,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: '
-
-    Transform ''hand_l'' has been deleted
-
-    Transform ''lowerarm_l''
-    has been deleted
-
-    Transform ''upperarm_l'' has been deleted
-
-    Transform
-    ''clavicle_l'' has been deleted
-
-    Transform ''hand_r'' has been deleted
-
-    Transform
-    ''lowerarm_r'' has been deleted
-
-    Transform ''upperarm_r'' has been deleted
-
-    Transform
-    ''clavicle_r'' has been deleted
-
-    Transform ''neck_01'' has been deleted
-
-    Transform
-    ''spine_03'' has been deleted
-
-    Transform ''spine_02'' has been deleted
-
-    Transform
-    ''spine_01'' has been deleted
-
-    Transform ''ball_l'' has been deleted
-
-    Transform
-    ''foot_l'' has been deleted
-
-    Transform ''calf_l'' has been deleted
-
-    Transform
-    ''thigh_l'' has been deleted
-
-    Transform ''ball_r'' has been deleted
-
-    Transform
-    ''foot_r'' has been deleted
-
-    Transform ''calf_r'' has been deleted
-
-    Transform
-    ''thigh_r'' has been deleted
-
-    Transform ''pelvis'' has been deleted
-
-    Transform
-    ''root'' has been deleted'
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -64445,7 +64274,7 @@ Transform:
   - {fileID: 1383569466}
   - {fileID: 2062773910}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1113555414
 GameObject:
@@ -69045,7 +68874,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200053470
 GameObject:
@@ -71432,7 +71261,7 @@ Transform:
   - {fileID: 1981252213}
   - {fileID: 1161640244}
   m_Father: {fileID: 1434704013}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1241213864
 Rigidbody:
@@ -71448,7 +71277,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1241213865
 MonoBehaviour:
@@ -71497,62 +71326,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: '
-
-    Transform ''hand_l'' has been deleted
-
-    Transform ''lowerarm_l''
-    has been deleted
-
-    Transform ''upperarm_l'' has been deleted
-
-    Transform
-    ''clavicle_l'' has been deleted
-
-    Transform ''hand_r'' has been deleted
-
-    Transform
-    ''lowerarm_r'' has been deleted
-
-    Transform ''upperarm_r'' has been deleted
-
-    Transform
-    ''clavicle_r'' has been deleted
-
-    Transform ''neck_01'' has been deleted
-
-    Transform
-    ''spine_03'' has been deleted
-
-    Transform ''spine_02'' has been deleted
-
-    Transform
-    ''spine_01'' has been deleted
-
-    Transform ''ball_l'' has been deleted
-
-    Transform
-    ''foot_l'' has been deleted
-
-    Transform ''calf_l'' has been deleted
-
-    Transform
-    ''thigh_l'' has been deleted
-
-    Transform ''ball_r'' has been deleted
-
-    Transform
-    ''foot_r'' has been deleted
-
-    Transform ''calf_r'' has been deleted
-
-    Transform
-    ''thigh_r'' has been deleted
-
-    Transform ''pelvis'' has been deleted
-
-    Transform
-    ''root'' has been deleted'
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -82059,10 +81833,10 @@ Transform:
   - {fileID: 949560342}
   - {fileID: 1614932054}
   - {fileID: 1699265761}
-  - {fileID: 2015814768}
   - {fileID: 1241213863}
+  - {fileID: 2015814768}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1436299523
 GameObject:
@@ -83166,7 +82940,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1450136443
 GameObject:
@@ -92358,7 +92132,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1614932056
 MonoBehaviour:
@@ -92373,7 +92147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 100
-  movementSpeed: 5
+  movementSpeed: 4
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -92407,62 +92181,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: '
-
-    Transform ''hand_l'' has been deleted
-
-    Transform ''lowerarm_l''
-    has been deleted
-
-    Transform ''upperarm_l'' has been deleted
-
-    Transform
-    ''clavicle_l'' has been deleted
-
-    Transform ''hand_r'' has been deleted
-
-    Transform
-    ''lowerarm_r'' has been deleted
-
-    Transform ''upperarm_r'' has been deleted
-
-    Transform
-    ''clavicle_r'' has been deleted
-
-    Transform ''neck_01'' has been deleted
-
-    Transform
-    ''spine_03'' has been deleted
-
-    Transform ''spine_02'' has been deleted
-
-    Transform
-    ''spine_01'' has been deleted
-
-    Transform ''ball_l'' has been deleted
-
-    Transform
-    ''foot_l'' has been deleted
-
-    Transform ''calf_l'' has been deleted
-
-    Transform
-    ''thigh_l'' has been deleted
-
-    Transform ''ball_r'' has been deleted
-
-    Transform
-    ''foot_r'' has been deleted
-
-    Transform ''calf_r'' has been deleted
-
-    Transform
-    ''thigh_r'' has been deleted
-
-    Transform ''pelvis'' has been deleted
-
-    Transform
-    ''root'' has been deleted'
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -97345,7 +97064,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1699265763
 MonoBehaviour:
@@ -97374,10 +97093,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.8
-  m_Height: 1
+  m_Radius: 0.52064335
+  m_Height: 1.6
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: -0.014420152, y: 0.8, z: 0}
 --- !u!95 &1699265765
 Animator:
   serializedVersion: 4
@@ -97394,62 +97113,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: '
-
-    Transform ''hand_l'' has been deleted
-
-    Transform ''lowerarm_l''
-    has been deleted
-
-    Transform ''upperarm_l'' has been deleted
-
-    Transform
-    ''clavicle_l'' has been deleted
-
-    Transform ''hand_r'' has been deleted
-
-    Transform
-    ''lowerarm_r'' has been deleted
-
-    Transform ''upperarm_r'' has been deleted
-
-    Transform
-    ''clavicle_r'' has been deleted
-
-    Transform ''neck_01'' has been deleted
-
-    Transform
-    ''spine_03'' has been deleted
-
-    Transform ''spine_02'' has been deleted
-
-    Transform
-    ''spine_01'' has been deleted
-
-    Transform ''ball_l'' has been deleted
-
-    Transform
-    ''foot_l'' has been deleted
-
-    Transform ''calf_l'' has been deleted
-
-    Transform
-    ''thigh_l'' has been deleted
-
-    Transform ''ball_r'' has been deleted
-
-    Transform
-    ''foot_r'' has been deleted
-
-    Transform ''calf_r'' has been deleted
-
-    Transform
-    ''thigh_r'' has been deleted
-
-    Transform ''pelvis'' has been deleted
-
-    Transform
-    ''root'' has been deleted'
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -116040,7 +115704,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1986713112
 MonoBehaviour:
@@ -118228,7 +117892,7 @@ Transform:
   - {fileID: 1625139526}
   - {fileID: 335539834}
   m_Father: {fileID: 1434704013}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2015814769
 Rigidbody:
@@ -118244,7 +117908,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2015814770
 MonoBehaviour:
@@ -118293,62 +117957,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: '
-
-    Transform ''hand_l'' has been deleted
-
-    Transform ''lowerarm_l''
-    has been deleted
-
-    Transform ''upperarm_l'' has been deleted
-
-    Transform
-    ''clavicle_l'' has been deleted
-
-    Transform ''hand_r'' has been deleted
-
-    Transform
-    ''lowerarm_r'' has been deleted
-
-    Transform ''upperarm_r'' has been deleted
-
-    Transform
-    ''clavicle_r'' has been deleted
-
-    Transform ''neck_01'' has been deleted
-
-    Transform
-    ''spine_03'' has been deleted
-
-    Transform ''spine_02'' has been deleted
-
-    Transform
-    ''spine_01'' has been deleted
-
-    Transform ''ball_l'' has been deleted
-
-    Transform
-    ''foot_l'' has been deleted
-
-    Transform ''calf_l'' has been deleted
-
-    Transform
-    ''thigh_l'' has been deleted
-
-    Transform ''ball_r'' has been deleted
-
-    Transform
-    ''foot_r'' has been deleted
-
-    Transform ''calf_r'' has been deleted
-
-    Transform
-    ''thigh_r'' has been deleted
-
-    Transform ''pelvis'' has been deleted
-
-    Transform
-    ''root'' has been deleted'
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
