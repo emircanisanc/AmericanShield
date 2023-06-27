@@ -6,10 +6,16 @@ public class SaveLoadManager
 {
     public const string DEFAULTWEAPONNAME = "Shield";
     public const int DEFAULTWEAPONLEVEL = 1;
+    public const int GAMEDEFAULTLEVEL = 1;
 
     public static string CurrentWeaponName()
     {
         return PlayerPrefs.GetString("currentWeapon", DEFAULTWEAPONNAME);
+    }
+
+    public static void SaveCurrentWeapon(string weaponName)
+    {
+        PlayerPrefs.SetString("currentWeapon", weaponName);
     }
     
     public static int WeaponLevel(string weaponName)
@@ -35,5 +41,15 @@ public class SaveLoadManager
     public static void SaveWeaponExp(string weaponName, int exp)
     {
         PlayerPrefs.SetInt(weaponName + "exp", exp);
+    }
+    
+    public static void SetLevel(int level)
+    {
+        PlayerPrefs.SetInt("gameLevel", level);
+    }
+
+    public static int CurrentLevel()
+    {
+        return PlayerPrefs.GetInt("gameLevel", GAMEDEFAULTLEVEL);
     }
 }

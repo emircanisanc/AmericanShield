@@ -6,12 +6,9 @@ using UnityEngine;
 public class WeaponSO : ScriptableObject
 {
     public GameObject prefab;
+    public GameObject modelPrefab;
     public string weaponName = "Shield";
-    public bool isUnlocked;
+    public bool IsUnlocked { get{ return  SaveLoadManager.WeaponIsUnclocked(weaponName);} }
 
-    void OnValidate()
-    {
-        isUnlocked = SaveLoadManager.WeaponIsUnclocked(weaponName);
-    }
 
 }
