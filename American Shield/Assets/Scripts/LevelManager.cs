@@ -48,9 +48,15 @@ public class LevelManager : MonoBehaviour
             {
                 sequence.Append(moveState.movingObject.DOMove(moveState.target.position, moveState.duration).OnComplete(() => moveState.movingObject.SetParent(moveState.target)));
             }
-            else
+            else if (moveState.moveState == MoveState.Jump)
             {
                 sequence.Append(moveState.movingObject.DOJump(moveState.target.position, 1f, 1, moveState.duration).OnComplete(() => moveState.movingObject.SetParent(moveState.target)));
+            }
+            else
+            {
+                Vector3 targetAngle = moveState.movingObject.eulerAngles;
+                targetAngle.y = moveState.target.eulerAngles.y;
+                sequence.Append(moveState.movingObject.DORotate(targetAngle, 1f).OnComplete(() => moveState.movingObject.SetParent(moveState.target)));
             }
         }
         sequence.OnComplete(() => NextState());
@@ -99,5 +105,6 @@ public class PlayerMoveState
 public enum MoveState
 {
     Move,
-    Jump
+    Jump,
+    Turn
 }
