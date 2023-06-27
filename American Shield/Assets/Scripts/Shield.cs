@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 [RequireComponent(typeof(Animator))]
-public class Shield : MonoBehaviour
+public class Shield : WeaponBase
 {
     [SerializeField] float shieldThrowDistance = 10f;
     [SerializeField] float shieldMoveDuration = 2.5f;
@@ -26,48 +26,19 @@ public class Shield : MonoBehaviour
     bool isShieldTurningBack = false;
     float holdingStartTime;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
-        shieldStartLocalPos = transform.localPosition;
-    }
-
-    void Update()
-    {
-        if (isShieldOnHand)
-        {
-            if (isHoldingShield)
-            {
-                HandleHoldingShield();
-            }
-            else
-            {
-                HandleNotHoldingShield();
-            }
-        }
-        else
-        {
-            HandleFloatingShield();
-        }
+        shieldStartLocalPos = Vector3.zero;
     }
 
     private void HandleHoldingShield()
     {
         if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
-            touchEndPos = touch.position;
-            Vector3 touchInput = touch.deltaPosition;
-
-            // Calculate the movement direction
-            Vector3 movement = new Vector3(touchInput.x, touchInput.y, 0).normalized;
-
-            // Move the shield relative to its current position
-            Vector3 newPosition = transform.localPosition + movement * dragSpeed * Time.deltaTime;
-            newPosition.y = Mathf.Clamp(newPosition.y, 0.8f, 1.5f);
-            newPosition.x = Mathf.Clamp(newPosition.x, -0.2f, 0.2f);
-            transform.localPosition = new Vector3(newPosition.x, newPosition.y, transform.localPosition.z);
+            MoveShield();
         }
         else
         {
@@ -185,6 +156,91 @@ public class Shield : MonoBehaviour
 
             }
         }
+    }
+
+    private void MoveShield()
+    {
+        Touch touch = Input.GetTouch(0);
+        touchEndPos = touch.position;
+        Vector3 touchInput = touch.deltaPosition;
+
+        // Calculate the movement direction
+        Vector3 movement = new Vector3(touchInput.x, touchInput.y, 0).normalized;
+
+        // Move the shield relative to its current position
+        Vector3 newPosition = transform.localPosition + movement * dragSpeed * Time.deltaTime;
+        newPosition.y = Mathf.Clamp(newPosition.y, -0.2f, 0.8f);
+        newPosition.x = Mathf.Clamp(newPosition.x, -0.2f, 0.2f);
+        transform.localPosition = new Vector3(newPosition.x, newPosition.y, transform.localPosition.z);
+    }
+
+    private void ReleaseShield()
+    {
+        isHoldingShield = false;
+        animator.SetTrigger("Idle");
+    }
+
+    public override void SkillOne()
+    {
+        if (isShieldOnHand)
+        {
+            if (isHoldingShield)
+            {
+                HandleHoldingShield();
+            }
+            else
+            {
+                if (Input.touchCount > 0)
+                {
+                    Touch touch = Input.GetTouch(0);
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        isHoldingShield = true;
+                    }
+                }
+            }
+        }
+        else
+        {
+            HandleFloatingShield();
+        }
+    }
+    
+    public override void SkillTwo()
+    {
+        if (!isShieldOnHand)
+            return;
+        
+        if (isHoldingShield)
+        {
+            if (Input.touchCount > 0)
+            {
+                MoveShield();
+            }
+            else
+            {
+                ReleaseShield();
+            }
+        }
+        else
+        {
+            HandleNotHoldingShield();
+        }
+    }
+
+    public override void SkillThree()
+    {
+        
+    }
+
+    public override void SkillFour()
+    {
+        
+    }
+    
+    public override void SkillFive()
+    {
+        
     }
 
 }
