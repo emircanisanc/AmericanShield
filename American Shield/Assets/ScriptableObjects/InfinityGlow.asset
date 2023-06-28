@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01467c2eddcbd8a43aa93abbc3143816, type: 3}
+  m_Name: InfinityGlow
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3334508124152844893, guid: f440db08dd680e44a9d1a1a8c2d84193, type: 3}
+  modelPrefab: {fileID: 3334508124152844893, guid: 9adc58b51ff053b41ac49563db35b775,
+    type: 3}
+  weaponName: InfinityGlow

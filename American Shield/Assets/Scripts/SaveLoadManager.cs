@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SaveLoadManager
 {
-    public const string DEFAULTWEAPONNAME = "Shield";
-    public const int DEFAULTWEAPONLEVEL = 1;
-    public const int GAMEDEFAULTLEVEL = 1;
+    public const string DEFAULTWEAPONNAME = "InfinityGlow";
+    public const int DEFAULTWEAPONLEVEL = 2;
+    public const int GAMEDEFAULTLEVEL = 2;
 
     public static string CurrentWeaponName()
     {

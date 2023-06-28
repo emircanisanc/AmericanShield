@@ -47,8 +47,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.35
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.26065052
+  m_Center: {x: -0.000000001168233, y: 0.08934951, z: -5.875218e-10}
 --- !u!54 &810741608463539605
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
   - {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
   - {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
-  shieldThrowDistance: 10
+  shieldThrowDistance: 12
   shieldMoveDuration: 0.8
   damage: 100
   dragSpeed: 0.7
