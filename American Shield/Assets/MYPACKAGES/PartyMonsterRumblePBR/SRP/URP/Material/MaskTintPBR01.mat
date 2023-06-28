@@ -114,6 +114,8 @@ Material:
     - _Color07Power: 2.5
     - _Color08Power: 2.5
     - _Metallic: 0.35
+    - _QueueControl: 0
+    - _QueueOffset: 0
     - _Smoothness: 0
     - __dirty: 1
     m_Colors:
