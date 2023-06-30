@@ -78,7 +78,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void EndLevel()
+    public void EndLevel()
     {
         SaveLoadManager.SetLevel(SaveLoadManager.CurrentLevel() + 1);
         OnLevelEnd?.Invoke();

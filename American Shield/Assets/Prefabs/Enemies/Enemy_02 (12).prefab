@@ -11996,7 +11996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
-  rotationSpeed: 10
+  rotationSpeed: 20
   attackDuration: 0
   hitAnimTime: 0.6
 --- !u!54 &328488337157090100
@@ -12013,7 +12013,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &328488337172838954
 GameObject:

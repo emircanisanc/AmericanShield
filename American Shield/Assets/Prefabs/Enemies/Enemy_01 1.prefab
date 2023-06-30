@@ -12854,8 +12854,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 100
-  movementSpeed: 4
-  rotationSpeed: 10
+  movementSpeed: 5
+  rotationSpeed: 20
   attackDuration: 0.6
   hitAnimTime: 0.6
 --- !u!54 &7429504882220449684

@@ -67445,40 +67445,49 @@ MonoBehaviour:
       target: {fileID: 319267981}
       movingObject: {fileID: 2100624595}
       duration: 3
+      append: 1
     - moveState: 1
       target: {fileID: 1084675555}
       movingObject: {fileID: 2100624595}
       duration: 1.5
+      append: 1
   - playerMoveStates:
     - moveState: 0
       target: {fileID: 20143497}
       movingObject: {fileID: 2100624595}
       duration: 3
+      append: 1
     - moveState: 1
       target: {fileID: 279627448}
       movingObject: {fileID: 2100624595}
       duration: 1.5
+      append: 1
   - playerMoveStates:
     - moveState: 0
       target: {fileID: 2002759593}
       movingObject: {fileID: 2100624595}
       duration: 2
+      append: 1
     - moveState: 1
       target: {fileID: 1821573976}
       movingObject: {fileID: 2100624595}
       duration: 1
+      append: 1
     - moveState: 1
       target: {fileID: 1057691748}
       movingObject: {fileID: 2100624595}
       duration: 1
+      append: 1
     - moveState: 1
       target: {fileID: 1504702796}
       movingObject: {fileID: 2100624595}
       duration: 1
+      append: 1
     - moveState: 0
       target: {fileID: 422814627}
       movingObject: {fileID: 2100624595}
       duration: 2
+      append: 1
 --- !u!4 &1707548983
 Transform:
   m_ObjectHideFlags: 0
@@ -84459,7 +84468,7 @@ PrefabInstance:
     - target: {fileID: 2548829932385087971, guid: b56af496138388e4abe76b98b0d28832,
         type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: 'Player '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b56af496138388e4abe76b98b0d28832, type: 3}

@@ -12854,9 +12854,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57767e90caf27ae4ca2c35bb394e3f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHp: 120
-  movementSpeed: 2
-  rotationSpeed: 10
+  enemyHp: 100
+  movementSpeed: 5
+  rotationSpeed: 20
   attackDuration: 0.6
   hitAnimTime: 0.6
 --- !u!54 &5273287466537958056
@@ -12873,7 +12873,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!135 &5273287466537958057
 SphereCollider:
