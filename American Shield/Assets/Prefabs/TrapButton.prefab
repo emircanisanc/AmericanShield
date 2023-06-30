@@ -177,6 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4781284046656489610}
   - component: {fileID: 8639750705506199006}
+  - component: {fileID: 1459855617263272355}
   m_Layer: 0
   m_Name: TrapButton
   m_TagString: Untagged
@@ -214,6 +215,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4795655, z: 0.4309389}
   m_Center: {x: 0, y: -0.032076895, z: 0.03950718}
+--- !u!114 &1459855617263272355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781284046656489611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d90f9b528680b488e2181d9eb43d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapAnimator: {fileID: 0}
 --- !u!1 &5068837442055199591
 GameObject:
   m_ObjectHideFlags: 0

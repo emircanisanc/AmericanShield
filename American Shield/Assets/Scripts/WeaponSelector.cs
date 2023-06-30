@@ -47,8 +47,9 @@ public class WeaponSelector : MonoBehaviour
         if (currentCursor + 1 < weaponCount)
         {
             currentCursor++;
-            Vector3 targetPos = camPos + new Vector3(0.7f, 0, 0);
+            Vector3 targetPos = cameraTransform.position + new Vector3(0.7f, 0, 0);
             cameraTransform.DOMove(targetPos, 0.5f);
+            CheckStartButtonActive();
         }
     }
 
@@ -57,8 +58,9 @@ public class WeaponSelector : MonoBehaviour
         if (currentCursor - 1 >= 0)
         {
             currentCursor--;
-            Vector3 targetPos = camPos + new Vector3(-0.7f, 0, 0);
+            Vector3 targetPos = cameraTransform.position + new Vector3(-0.7f, 0, 0);
             cameraTransform.DOMove(targetPos, 0.5f);
+            CheckStartButtonActive();
         }
     }
 
