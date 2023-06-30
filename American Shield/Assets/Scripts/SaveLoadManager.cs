@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SaveLoadManager
 {
-    public const string DEFAULTWEAPONNAME = "InfinityGlow";
-    public const int DEFAULTWEAPONLEVEL = 2;
-    public const int GAMEDEFAULTLEVEL = 2;
+    public const string DEFAULTWEAPONNAME = "Shield";
+    public const int DEFAULTWEAPONLEVEL = 1;
+    public const int GAMEDEFAULTLEVEL = 1;
 
     public static string CurrentWeaponName()
     {
@@ -25,7 +25,16 @@ public class SaveLoadManager
 
     public static bool WeaponIsUnclocked(string weaponName)
     {
-        return PlayerPrefs.GetInt(weaponName+"isUnlocked", 1) == 1;
+        if (weaponName == DEFAULTWEAPONNAME)
+        {
+            return true;
+        }
+        return PlayerPrefs.GetInt(weaponName+"isUnlocked", 0) == 1;
+    }
+
+    public static void SetWeaponUnlocked(string weaponName)
+    {
+        PlayerPrefs.SetInt(weaponName+"isUnlocked", 1);
     }
 
     public static int WeaponExp(string weaponName)

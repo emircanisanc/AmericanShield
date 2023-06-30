@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class InGameUI : MonoBehaviour
 {
@@ -77,5 +78,10 @@ public class InGameUI : MonoBehaviour
     private void ShowMainUI()
     {
         mainUI.SetActive(true);
+    }
+
+    public void OpenLevelSelection()
+    {
+        SceneManager.LoadScene("WeaponSelect");
     }
 }

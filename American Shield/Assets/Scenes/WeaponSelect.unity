@@ -1416,7 +1416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponList: {fileID: 11400000, guid: 756c36ade2d881346ad2d654be076cb6, type: 2}
   cameraTransform: {fileID: 1525782122}
-  startBtn: {fileID: 0}
+  startBtn: {fileID: 731092275}
 --- !u!1 &2132140573
 GameObject:
   m_ObjectHideFlags: 0

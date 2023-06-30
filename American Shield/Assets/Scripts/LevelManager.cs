@@ -13,17 +13,10 @@ public class LevelManager : MonoBehaviour
     public Action OnLevelEnd;
     int currentState = -1;
     int currentEnemyCount;
-    string sceneName;
-    string sceneNum;
-    int sceneNumInt;
 
     void Start()
     {
         NextState();
-        sceneName = SceneManager.GetActiveScene().name;
-        sceneNum = String.Concat(sceneName.Where(char.IsDigit));
-        sceneNumInt = int.Parse(sceneNum);
-        Debug.Log(sceneNum);
     }
 
     private void Counter()
@@ -34,10 +27,6 @@ public class LevelManager : MonoBehaviour
             StartState();
         }
     }
-    public void NextLevel()
-    {
-        SceneManager.LoadScene(sceneNumInt);
-    }
 
     private void StartState()
     {
@@ -46,17 +35,26 @@ public class LevelManager : MonoBehaviour
         {
             if (moveState.moveState == MoveState.Move)
             {
-                sequence.Append(moveState.movingObject.DOMove(moveState.target.position, moveState.duration).OnComplete(() => moveState.movingObject.SetParent(moveState.target)));
+                if (moveState.append)
+                    sequence.Append(moveState.movingObject.DOMove(moveState.target.position, moveState.duration).OnComplete(() => moveState.movingObject.SetParent(moveState.target)));
+                else
+                    sequence.Join(moveState.movingObject.DOMove(moveState.target.position, moveState.duration).OnComplete(() => moveState.movingObject.SetParent(moveState.target)));
             }
             else if (moveState.moveState == MoveState.Jump)
             {
-                sequence.Append(moveState.movingObject.DOJump(moveState.target.position, 1f, 1, moveState.duration).OnComplete(() => moveState.movingObject.SetParent(moveState.target)));
+                if (moveState.append)
+                    sequence.Append(moveState.movingObject.DOJump(moveState.target.position, 1f, 1, moveState.duration).OnComplete(() => moveState.movingObject.SetParent(moveState.target)));
+                else
+                    sequence.Join(moveState.movingObject.DOJump(moveState.target.position, 1f, 1, moveState.duration).OnComplete(() => moveState.movingObject.SetParent(moveState.target)));
             }
             else
             {
                 Vector3 targetAngle = moveState.movingObject.eulerAngles;
                 targetAngle.y = moveState.target.eulerAngles.y;
-                sequence.Append(moveState.movingObject.DORotate(targetAngle, 1f).OnComplete(() => moveState.movingObject.SetParent(moveState.target)));
+                if (moveState.append)
+                    sequence.Append(moveState.movingObject.DORotate(targetAngle, 1f));
+                else
+                    sequence.Join(moveState.movingObject.DORotate(targetAngle, 1f));
             }
         }
         sequence.OnComplete(() => NextState());
@@ -76,8 +74,14 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            OnLevelEnd?.Invoke();
+            EndLevel();
         }
+    }
+
+    private void EndLevel()
+    {
+        SaveLoadManager.SetLevel(SaveLoadManager.CurrentLevel() + 1);
+        OnLevelEnd?.Invoke();
     }
 }
 
@@ -100,6 +104,7 @@ public class PlayerMoveState
     public Transform target;
     public Transform movingObject;
     public float duration;
+    public bool append = true;
 }
 
 public enum MoveState
