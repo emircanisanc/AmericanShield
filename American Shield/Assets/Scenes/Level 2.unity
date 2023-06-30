@@ -15349,7 +15349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponList: {fileID: 11400000, guid: 756c36ade2d881346ad2d654be076cb6, type: 2}
-  SpawnFromLoad: 1
+  SpawnFromLoad: 0
   SpawnIndex: 1
 --- !u!1 &721311061
 GameObject:
