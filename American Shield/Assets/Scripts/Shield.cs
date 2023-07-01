@@ -12,6 +12,7 @@ public class Shield : WeaponBase
     [SerializeField] float dragSpeed = 0.5f;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] Vector3 throwAngle;
+    [SerializeField] float minX = -0.2f, minY = -0.2f, maxY = 0.8f;
 
     public bool IsBlocking { get { return isHoldingShield && Time.time - holdingStartTime < 0.5f; } }
 
@@ -54,8 +55,6 @@ public class Shield : WeaponBase
         if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance, enemyLayer))
         {
             MoveShieldTo(raycastHit.point);
-            //            raycastHit.transform.GetComponent<EnemyMovement>().ApplyDamage(100);
-            // raycastHit.transform.GetComponent<EnemyMovement>().GetHit();
         }
         else
         {
@@ -169,8 +168,8 @@ public class Shield : WeaponBase
 
         // Move the shield relative to its current position
         Vector3 newPosition = transform.localPosition + movement * dragSpeed * Time.deltaTime;
-        newPosition.y = Mathf.Clamp(newPosition.y, -0.2f, 0.8f);
-        newPosition.x = Mathf.Clamp(newPosition.x, -0.2f, 0.2f);
+        newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+        newPosition.x = Mathf.Clamp(newPosition.x, minX, Mathf.Abs(minX));
         transform.localPosition = new Vector3(newPosition.x, newPosition.y, transform.localPosition.z);
     }
 

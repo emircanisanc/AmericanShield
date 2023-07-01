@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WeaponSelector : MonoBehaviour
 {
+    [System.Serializable]
+    private class UnlockWeapon
+    {
+        public int unlockLevel;
+        public string weaponName;
+    }
+
+
+
     [SerializeField] WeaponListSO weaponList;
     [SerializeField] Transform cameraTransform;
     [SerializeField] GameObject startBtn;
+    [SerializeField] GameObject unlockWeaponPanel;
+    [SerializeField] Image unlockWeaponImage;
+    [SerializeField] List<UnlockWeapon> unlockWeapons;
+
 
     Vector3 camPos;
     int currentSelected;
@@ -40,6 +54,19 @@ public class WeaponSelector : MonoBehaviour
         camPos = cameraTransform.position;
         cameraTransform.position = new Vector3(x, camPos.y, camPos.z);
         weaponCount = weaponList.weapons.Count;
+
+        int currentLevel = SaveLoadManager.CurrentLevel();
+        foreach (var unlockWeapon in unlockWeapons)
+        {
+            if (unlockWeapon.unlockLevel == currentLevel)
+            {
+                SaveLoadManager.SetWeaponUnlocked(unlockWeapon.weaponName);
+                WeaponSO weapon = weaponList.weapons.Find(x => x.weaponName == unlockWeapon.weaponName);
+                unlockWeaponImage.sprite = weapon.unlockImage;
+                unlockWeaponPanel.SetActive(true);
+                return;
+            }
+        }
     }
 
     public void SelectRight()

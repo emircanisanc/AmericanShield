@@ -22,6 +22,7 @@ public class InGameUI : MonoBehaviour
     [SerializeField] Image levelUpBar;
     [SerializeField] GameObject nextLevelBtn;
     [SerializeField] GameObject levelUpText;
+    [SerializeField] WeaponListSO weaponList;
 
     void Awake()
     {
@@ -53,10 +54,22 @@ public class InGameUI : MonoBehaviour
         int currentExp = SaveLoadManager.WeaponExp(weaponName);
         levelUpBar.fillAmount = (float)currentExp / 100;
         int targetExp = currentExp + expOnLevelEnd;
+        targetExp = Mathf.Clamp(targetExp, 0, 100);
         if (targetExp == 100)
         {
-            SaveLoadManager.SaveWeaponExp(weaponName, 0);
-            SaveLoadManager.SaveWeaponLevel(weaponName, SaveLoadManager.WeaponLevel(weaponName) + 1);
+            WeaponSO weaponSO = weaponList.weapons.Find(x => x.weaponName == weaponName);
+            int currentLevel = SaveLoadManager.WeaponLevel(weaponName);
+            if (weaponSO.maxLevel == currentLevel)
+            {
+                SaveLoadManager.SaveWeaponExp(weaponName, targetExp);
+                ShowNextLevelButton(false);
+                return;
+            }
+            else
+            {
+                SaveLoadManager.SaveWeaponExp(weaponName, 0);
+                SaveLoadManager.SaveWeaponLevel(weaponName, currentLevel + 1);
+            }
         }
         else
         {

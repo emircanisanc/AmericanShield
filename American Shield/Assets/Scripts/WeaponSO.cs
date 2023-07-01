@@ -7,8 +7,8 @@ public class WeaponSO : ScriptableObject
 {
     public GameObject prefab;
     public GameObject modelPrefab;
+    public Sprite unlockImage;
     public string weaponName = "Shield";
     public bool IsUnlocked { get{ return  SaveLoadManager.WeaponIsUnclocked(weaponName);} }
-
-
+    public int maxLevel = 3;
 }
