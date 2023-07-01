@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 6580888086307564119}
   - component: {fileID: 6580888086307564136}
   - component: {fileID: 6770071566054524464}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InfinityGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,13 +789,17 @@ MonoBehaviour:
   glowLaserDistance: 10
   laserDuration: 0.1
   damage: 50
-  dragSpeed: 2
+  dragSpeed: 1.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
   minX: -0.7
   minY: -0.5
-  maxY: 4
+  maxY: 0.7
+  water: {fileID: 1197484623826487833, guid: 3ec0afcbe7703c341becab865ecd0875, type: 3}
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!120 &6770071566054524464
 LineRenderer:
   m_ObjectHideFlags: 0

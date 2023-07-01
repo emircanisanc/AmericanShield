@@ -15970,7 +15970,7 @@ PrefabInstance:
     - target: {fileID: 2548829933194647484, guid: b56af496138388e4abe76b98b0d28832,
         type: 3}
       propertyPath: SpawnFromLoad
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b56af496138388e4abe76b98b0d28832, type: 3}
@@ -16420,6 +16420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 120
   movementSpeed: 2
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6

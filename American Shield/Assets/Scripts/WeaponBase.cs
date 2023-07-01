@@ -13,6 +13,17 @@ public abstract class WeaponBase : MonoBehaviour
     protected virtual void Awake()
     {
         level = SaveLoadManager.WeaponLevel(weaponSO.weaponName);
+        PlayerManager.OnPlayerDie += DisableWeapon;
+    }
+
+    void OnDisable()
+    {
+        PlayerManager.OnPlayerDie -= DisableWeapon;
+    }
+
+    private void DisableWeapon()
+    {
+        enabled = false;
     }
 
     void Start()

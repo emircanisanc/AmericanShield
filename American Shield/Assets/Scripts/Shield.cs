@@ -13,6 +13,8 @@ public class Shield : WeaponBase
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] Vector3 throwAngle;
     [SerializeField] float minX = -0.2f, minY = -0.2f, maxY = 0.8f;
+    [SerializeField] Meteor meteor;
+    [SerializeField] LayerMask meteorLayer;
 
     public bool IsBlocking { get { return isHoldingShield && Time.time - holdingStartTime < 0.5f; } }
 
@@ -26,10 +28,14 @@ public class Shield : WeaponBase
     bool isShieldOnHand = true;
     bool isShieldTurningBack = false;
     float holdingStartTime;
+    float nextMeteorTime;
 
     protected override void Awake()
     {
         base.Awake();
+        GameObject meteorObj = Instantiate(meteor.gameObject);
+        meteor = meteorObj.GetComponent<Meteor>();
+        meteor.gameObject.SetActive(false);
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
         shieldStartLocalPos = Vector3.zero;
@@ -204,6 +210,18 @@ public class Shield : WeaponBase
             HandleFloatingShield();
         }
     }
+
+    protected override void ChangeSkill(int skill)
+    {
+        base.ChangeSkill(skill);
+        if (skill == 2)
+        {
+            isShieldOnHand = true;
+            isHoldingShield = false;
+            nextMeteorTime = Time.time + 3f;
+        }
+    }
+
     
     public override void SkillTwo()
     {
@@ -229,7 +247,33 @@ public class Shield : WeaponBase
 
     public override void SkillThree()
     {
-        
+        HandleMeteorSpawn();
+    }
+
+    private void HandleMeteorSpawn()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            touchEndPos = touch.position;
+            if (Time.time >= nextMeteorTime && !meteor.gameObject.activeSelf)
+            {
+                SpawnMeteor();
+            }
+        }
+    }
+
+    private void SpawnMeteor()
+    {
+        RaycastHit raycastHit;
+        Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
+        if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance * 4, meteorLayer))
+        {
+            Vector3 spawnPosition = raycastHit.point + Vector3.up * 5f;
+            meteor.transform.position = spawnPosition;
+            meteor.MoveDirection((raycastHit.point - spawnPosition).normalized);
+            nextMeteorTime = Time.time + 3f;
+        }
     }
 
     public override void SkillFour()

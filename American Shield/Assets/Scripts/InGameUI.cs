@@ -16,6 +16,7 @@ public class InGameUI : MonoBehaviour
     # endregion
 
     [SerializeField] GameObject winGameUI;
+    [SerializeField] GameObject loseGameUI;
     [SerializeField] GameObject mainUI;
     [SerializeField] SkillButton[] skillButtons;
     [SerializeField] int expOnLevelEnd;
@@ -36,14 +37,26 @@ public class InGameUI : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<LevelManager>().OnLevelEnd += ShowWinGameUI;
+        LevelManager.OnLevelEnd += ShowWinGameUI;
+        PlayerManager.OnPlayerDie += ShowLoseGameUI;
         ShowMainUI();
+    }
+
+    void OnDisable()
+    {
+        LevelManager.OnLevelEnd -= ShowWinGameUI;
+        PlayerManager.OnPlayerDie -= ShowLoseGameUI;
     }
 
     public void AddSkill(int index, UnityAction action, Sprite image)
     {
         skillButtons[index].SetSkill(action, image);
         skillButtons[index].gameObject.SetActive(true);
+    }
+
+    private void ShowLoseGameUI()
+    {
+        loseGameUI.SetActive(true);
     }
 
     private void ShowWinGameUI()
@@ -96,5 +109,10 @@ public class InGameUI : MonoBehaviour
     public void OpenLevelSelection()
     {
         SceneManager.LoadScene("WeaponSelect");
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

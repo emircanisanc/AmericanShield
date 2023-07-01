@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] List<EnemyGroup> enemyGroups;
     [SerializeField] List<PlayerMoveStateGroup> moveStateGroups;
-    public Action OnLevelEnd;
+    public static Action OnLevelEnd;
     int currentState = -1;
     int currentEnemyCount;
 

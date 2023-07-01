@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 810741608463539605}
   - component: {fileID: 999930861997027790}
   - component: {fileID: 3152186049231448353}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,6 +95,10 @@ MonoBehaviour:
   minX: -0.2
   minY: -0.2
   maxY: 0.8
+  meteor: {fileID: 1197484623826487833, guid: af8e964c1659d8e46bd8e182b1bd9f4d, type: 3}
+  meteorLayer:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!95 &3152186049231448353
 Animator:
   serializedVersion: 4

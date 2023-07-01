@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 4781284046656489610}
   - component: {fileID: 8639750705506199006}
   - component: {fileID: 1459855617263272355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TrapButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d90f9b528680b488e2181d9eb43d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapAnimator: {fileID: 0}
+  trapAnimator:
+  - {fileID: 0}
 --- !u!1 &5068837442055199591
 GameObject:
   m_ObjectHideFlags: 0

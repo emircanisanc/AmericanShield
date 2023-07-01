@@ -13,13 +13,15 @@ public class InfinityGlow : WeaponBase
     [SerializeField] float dragSpeed = 0.5f;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] float minX, minY, maxY;
+    [SerializeField] Meteor water;
+    [SerializeField] Transform waterSpawnPoint;
 
 
     LineRenderer LaserLine;
     Transform LaserOrigin;
     Animator animator;
     Camera mainCamera;
-    Vector3 shieldStartLocalPos;
+    Vector3 glowStartAngle;
     Vector2 touchEndPos;
     float holdingStartTime;
     float nextDamageTime;
@@ -28,9 +30,12 @@ public class InfinityGlow : WeaponBase
     protected override void Awake()
     {
         base.Awake();
+        GameObject meteorObj = Instantiate(water.gameObject);
+        water = meteorObj.GetComponent<Meteor>();
+        water.gameObject.SetActive(false);
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
-        shieldStartLocalPos = Vector3.zero;
+        glowStartAngle = transform.eulerAngles;
         LaserOrigin = transform.GetChild(0).GetChild(0);
         LaserLine = GetComponent<LineRenderer>();
     }
@@ -38,9 +43,13 @@ public class InfinityGlow : WeaponBase
     protected override void ChangeSkill(int skill)
     {
         base.ChangeSkill(skill);
-        if (skill != 1)
+        if (skill != 0)
         {
             LaserLine.enabled = false;
+        }
+        if (skill == 1)
+        {
+            nextDamageTime = Time.time + 2f;
         }
     }
 
@@ -75,8 +84,17 @@ public class InfinityGlow : WeaponBase
                     damageable.ApplyDamage(damage);
                     nextDamageTime = Time.time + 0.5f;
                 }
+                Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
+                if (Physics.Raycast(ray, out raycastHit, glowLaserDistance, enemyLayer))
+                {
+                    if (raycastHit.transform.TryGetComponent<TrapButton>(out var trapButton))
+                    {
+                        trapButton.ApplyDamage(200);
+                    }
+                }
             }
         }
+
     }
 
     private void WaterShoot()
@@ -87,7 +105,14 @@ public class InfinityGlow : WeaponBase
             RaycastHit raycastHit;
             if (Physics.Raycast(transform.position, LaserOrigin.forward, out raycastHit, glowLaserDistance, enemyLayer))
             {
+                water.transform.position = LaserOrigin.position;
                 shootDirection = (raycastHit.point - transform.position).normalized;
+                water.MoveDirection(shootDirection);
+            }
+            else
+            {
+                water.transform.position = LaserOrigin.position;
+                water.MoveDirection(shootDirection);
             }
             // SPAWN WATER BULLET
             nextDamageTime = Time.time + 2f;
@@ -121,6 +146,7 @@ public class InfinityGlow : WeaponBase
             }
         }
     }
+
 
     public override void SkillTwo()
     {

@@ -48,13 +48,21 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
                         if (!isAttackBlocked)
                         {
                             isAttacking = true;
-                            // APPLY DAMAGE TO ENEMY
+                            Invoke("KillPlayer", attackDuration / 3);
                         }
                         Invoke("StopAttack", attackDuration / 2);
                         nextDamageTime = Time.time + attackDuration;
                     }
                 }
             }
+        }
+    }
+
+    private void KillPlayer()
+    {
+        if (!isAttackBlocked && player.TryGetComponent<IDamageable>(out var damageable))
+        {
+            damageable.ApplyDamage(5);
         }
     }
 
