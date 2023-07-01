@@ -80,10 +80,10 @@ MonoBehaviour:
   level: 1
   weaponSO: {fileID: 11400000, guid: eefd52c27e355c74aadb6cb1b0fb41bc, type: 2}
   skillImages:
-  - {fileID: 21300000, guid: 0358e94906c704657ab9ca0a8ce5a588, type: 3}
-  - {fileID: 21300000, guid: cb873b07dc75243c1942d89018500c32, type: 3}
-  - {fileID: 21300000, guid: 563ca0f21bfce408b86459e92e3deaa1, type: 3}
-  - {fileID: 21300000, guid: aef20f8e21ef14da9ba50e7d8df50510, type: 3}
+  - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
+  - {fileID: 21300000, guid: 3c7dc21b9cfc64a28a0db252abd7f3ad, type: 3}
+  - {fileID: 21300000, guid: 1763c140e7caf4eb2a38686bf8a790ec, type: 3}
+  - {fileID: 21300000, guid: cf33b4f588e264da0b0d1264f151e2ff, type: 3}
   shieldThrowDistance: 12
   shieldMoveDuration: 0.8
   damage: 100
@@ -92,6 +92,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   throwAngle: {x: 250, y: 0, z: 100}
+  minX: -0.2
+  minY: -0.2
+  maxY: 0.8
 --- !u!95 &3152186049231448353
 Animator:
   serializedVersion: 4
