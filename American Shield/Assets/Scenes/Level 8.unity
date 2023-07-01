@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 7ea35d18ba22fad42893bffe88f4735a,
+  m_LightingDataAsset: {fileID: 112000000, guid: 74f934088d39ba14f8d7fc120dc2ecce,
     type: 2}
   m_LightingSettings: {fileID: 475370970}
 --- !u!196 &4
@@ -668,6 +668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -6279,6 +6280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -46013,6 +46015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -47503,6 +47506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -50127,6 +50131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6

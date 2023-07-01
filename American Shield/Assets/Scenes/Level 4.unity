@@ -2013,6 +2013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -5850,6 +5851,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Barricade (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
@@ -12423,6 +12429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Decoy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5749377464608948986, guid: 85e57f319eb4b5b4ab0f5d4b3b5e4b90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85e57f319eb4b5b4ab0f5d4b3b5e4b90, type: 3}
 --- !u!4 &197567125 stripped
@@ -13555,6 +13566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Box (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3186051351591968112, guid: 2b82995bc2a4cd34897a6ae79451c854,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3978891387661024421, guid: 2b82995bc2a4cd34897a6ae79451c854,
         type: 3}
@@ -14909,6 +14925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -21811,6 +21828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -27618,6 +27636,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Barricade (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
@@ -33453,6 +33476,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Decoy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749377464608948986, guid: 85e57f319eb4b5b4ab0f5d4b3b5e4b90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85e57f319eb4b5b4ab0f5d4b3b5e4b90, type: 3}
@@ -46619,6 +46647,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barricade (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
 --- !u!4 &762071076 stripped
@@ -48375,6 +48408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Barricade (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
@@ -50914,6 +50952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Barricade (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
@@ -54897,7 +54940,7 @@ PrefabInstance:
     - target: {fileID: 8468428538608512558, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.92437
+      value: 6.661725
       objectReference: {fileID: 0}
     - target: {fileID: 8468428538608512558, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
         type: 3}
@@ -54912,7 +54955,7 @@ PrefabInstance:
     - target: {fileID: 8468428538608512558, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.7700005
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 8468428538608512558, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
         type: 3}
@@ -54953,6 +54996,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Barricade (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
@@ -57606,6 +57654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 6
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -62773,6 +62822,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box
       objectReference: {fileID: 0}
+    - target: {fileID: 3186051351591968112, guid: 2b82995bc2a4cd34897a6ae79451c854,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3978891387661024421, guid: 2b82995bc2a4cd34897a6ae79451c854,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -64828,6 +64882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Box (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3186051351591968112, guid: 2b82995bc2a4cd34897a6ae79451c854,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3978891387661024421, guid: 2b82995bc2a4cd34897a6ae79451c854,
         type: 3}
@@ -71724,6 +71783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 7
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -73653,6 +73713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Barricade (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
@@ -87057,6 +87122,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barricade (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
 --- !u!4 &1509799002 stripped
@@ -91234,6 +91304,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barricade
       objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
 --- !u!4 &1584078049 stripped
@@ -92124,6 +92199,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3186051351591968112, guid: 2b82995bc2a4cd34897a6ae79451c854,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3978891387661024421, guid: 2b82995bc2a4cd34897a6ae79451c854,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -92954,6 +93034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 6
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -97633,6 +97714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -107853,6 +107935,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barricade (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
 --- !u!4 &1856729051 stripped
@@ -109260,6 +109347,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Barricade (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}
@@ -115736,6 +115828,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3186051351591968112, guid: 2b82995bc2a4cd34897a6ae79451c854,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3978891387661024421, guid: 2b82995bc2a4cd34897a6ae79451c854,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -116525,6 +116622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 3
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -118729,6 +118827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 10
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -120244,6 +120343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Barricade (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137300411126527124, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd7b1e84cbf9b04c8e5e24c4cca6af6, type: 3}

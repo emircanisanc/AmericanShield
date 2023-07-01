@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 7ea35d18ba22fad42893bffe88f4735a,
+  m_LightingDataAsset: {fileID: 112000000, guid: 529608e37e277c14db63200bcb8c88f7,
     type: 2}
   m_LightingSettings: {fileID: 475370970}
 --- !u!196 &4
@@ -2599,6 +2599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 7
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -10739,6 +10740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 200
   movementSpeed: 2
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -11154,6 +11156,11 @@ PrefabInstance:
     - target: {fileID: 1459855617263272355, guid: c800b62a14e8fd2479ea531104198f52,
         type: 3}
       propertyPath: trapAnimator
+      value: 
+      objectReference: {fileID: 7791216376867984922}
+    - target: {fileID: 1459855617263272355, guid: c800b62a14e8fd2479ea531104198f52,
+        type: 3}
+      propertyPath: trapAnimator.Array.data[0]
       value: 
       objectReference: {fileID: 7791216376867984922}
     - target: {fileID: 4781284046656489610, guid: c800b62a14e8fd2479ea531104198f52,
@@ -42227,6 +42234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 7
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -63720,6 +63728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 7
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -65644,6 +65653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 7
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -74349,6 +74359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 2
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -78007,6 +78018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 2
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -109645,6 +109657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 7
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -132964,6 +132977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 7
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6

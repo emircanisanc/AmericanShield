@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
 {
     [SerializeField] private int enemyHp = 100;
     [SerializeField] private float movementSpeed = 2f;
+    [SerializeField] private float followDistnace = 2f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float attackDuration;
     [SerializeField] private float hitAnimTime = 0.5f;
@@ -73,7 +74,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         animator.SetBool("isAttack", false);
         animator.SetBool("isWalk", true);
-        Vector3 movement = transform.forward * movementSpeed * Time.deltaTime*0.75f;
+        Vector3 movement = transform.forward * movementSpeed * Time.deltaTime * 0.75f;
         rigidBody.MovePosition(transform.position + movement);
     }
     private void Attack()
@@ -102,10 +103,10 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         animator.SetBool("isAttack", false);
         distanceWalk = false;
         distanceAttack = false;
-        GetComponent<Collider>().enabled = false; 
-        rigidBody.isKinematic = true; 
+        GetComponent<Collider>().enabled = false;
+        rigidBody.isKinematic = true;
         Invoke("CallDieEvent", 2f);
-        //Destroy(this.gameObject, 3f);
+        Destroy(this.gameObject, 3f);
     }
 
     private void CallDieEvent()
@@ -115,7 +116,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     private void FindDistance()
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance < 2.5f)
+        if (distance < followDistnace)
         {
             Attack();
         }

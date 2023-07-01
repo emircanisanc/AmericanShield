@@ -4317,6 +4317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -12392,7 +12393,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 881584631}
     m_Modifications:
     - target: {fileID: 5119070784817147118, guid: 1139a20c3f036e6448ce456217b4c02b,
         type: 3}
@@ -12402,7 +12403,7 @@ PrefabInstance:
     - target: {fileID: 5494751554511271508, guid: 1139a20c3f036e6448ce456217b4c02b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 5494751554511271508, guid: 1139a20c3f036e6448ce456217b4c02b,
         type: 3}
@@ -12422,17 +12423,17 @@ PrefabInstance:
     - target: {fileID: 5494751554511271508, guid: 1139a20c3f036e6448ce456217b4c02b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.05
+      value: -6.13
       objectReference: {fileID: 0}
     - target: {fileID: 5494751554511271508, guid: 1139a20c3f036e6448ce456217b4c02b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.89
+      value: 0.9399998
       objectReference: {fileID: 0}
     - target: {fileID: 5494751554511271508, guid: 1139a20c3f036e6448ce456217b4c02b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.37
+      value: 0.40999985
       objectReference: {fileID: 0}
     - target: {fileID: 5494751554511271508, guid: 1139a20c3f036e6448ce456217b4c02b,
         type: 3}
@@ -12476,6 +12477,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1139a20c3f036e6448ce456217b4c02b, type: 3}
+--- !u!4 &300456276 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5494751554511271508, guid: 1139a20c3f036e6448ce456217b4c02b,
+    type: 3}
+  m_PrefabInstance: {fileID: 300456275}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &300575094
 GameObject:
   m_ObjectHideFlags: 0
@@ -16808,7 +16815,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8720913, g: 0, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
@@ -28052,6 +28059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 3
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -35796,7 +35804,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &843189319
 GameObject:
@@ -36098,6 +36106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -36664,8 +36673,9 @@ Transform:
   - {fileID: 510295471}
   - {fileID: 1521395241}
   - {fileID: 1658620240}
+  - {fileID: 300456276}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &883277569
 GameObject:
@@ -48221,7 +48231,7 @@ PrefabInstance:
     - target: {fileID: 9072172708891862365, guid: d4210d02a14e37c4b831cecbddbee857,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9072172708891862365, guid: d4210d02a14e37c4b831cecbddbee857,
         type: 3}
@@ -48432,6 +48442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -48909,6 +48920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 3
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6
@@ -59716,7 +59728,7 @@ Transform:
   - {fileID: 1504702796}
   - {fileID: 422814627}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1492178207
 GameObject:
@@ -67494,7 +67506,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1710164351
 GameObject:
@@ -76158,7 +76170,7 @@ Transform:
   - {fileID: 864394651}
   - {fileID: 655303880}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916066572
 GameObject:
@@ -76646,7 +76658,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1923500839
 GameObject:
@@ -84406,7 +84418,7 @@ PrefabInstance:
     - target: {fileID: 2548829932385087970, guid: b56af496138388e4abe76b98b0d28832,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2548829932385087970, guid: b56af496138388e4abe76b98b0d28832,
         type: 3}
@@ -86726,6 +86738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 150
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0
   hitAnimTime: 0.6

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TrapButton : MonoBehaviour, IDamageable
 {
-    [SerializeField] Animator trapAnimator;
+
+    public List<Animator> trapAnimator;
     bool isActive = true;
 
     public void ApplyDamage(int damage)
@@ -12,7 +13,11 @@ public class TrapButton : MonoBehaviour, IDamageable
         if (isActive)
         {
             isActive = false;
-            trapAnimator.SetTrigger("isPush");
+            foreach (Animator animator in trapAnimator)
+            {
+                animator.SetTrigger("isPush");
+            }
+
         }
     }
 }
