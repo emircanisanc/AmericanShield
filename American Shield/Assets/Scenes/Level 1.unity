@@ -15962,6 +15962,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2548829933194647484, guid: b56af496138388e4abe76b98b0d28832,
+        type: 3}
+      propertyPath: SpawnIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548829933194647484, guid: b56af496138388e4abe76b98b0d28832,
+        type: 3}
+      propertyPath: SpawnFromLoad
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b56af496138388e4abe76b98b0d28832, type: 3}
 --- !u!1 &2710547131738975278
@@ -16591,6 +16601,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: InGameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 9072172708891862364, guid: d4210d02a14e37c4b831cecbddbee857,
+        type: 3}
+      propertyPath: weaponList
+      value: 
+      objectReference: {fileID: 11400000, guid: 756c36ade2d881346ad2d654be076cb6,
+        type: 2}
     - target: {fileID: 9072172708891862365, guid: d4210d02a14e37c4b831cecbddbee857,
         type: 3}
       propertyPath: m_Pivot.x
