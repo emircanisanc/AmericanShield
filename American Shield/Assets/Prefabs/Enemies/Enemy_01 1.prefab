@@ -12860,6 +12860,9 @@ MonoBehaviour:
   rotationSpeed: 20
   attackDuration: 0.6
   hitAnimTime: 0.6
+  colliders:
+  - {fileID: 4312469775252550895}
+  - {fileID: 6811987794095334574}
 --- !u!54 &7429504882220449684
 Rigidbody:
   m_ObjectHideFlags: 0

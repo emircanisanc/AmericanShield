@@ -12828,6 +12828,7 @@ MonoBehaviour:
   rotationSpeed: 20
   attackDuration: 0.6
   hitAnimTime: 0.6
+  colliders: []
 --- !u!54 &558034399846215978
 Rigidbody:
   m_ObjectHideFlags: 0

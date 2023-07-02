@@ -6139,8 +6139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 8
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &78649166
 CapsuleCollider:
@@ -18124,8 +18125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &240177907
 CapsuleCollider:
@@ -32528,8 +32530,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 4
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &452945051
 CapsuleCollider:
@@ -56609,8 +56612,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &816921324
 CapsuleCollider:
@@ -65933,8 +65937,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &949560345
 CapsuleCollider:
@@ -81135,8 +81140,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &1186336712
 CapsuleCollider:
@@ -90859,8 +90865,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &1328655861
 CapsuleCollider:
@@ -106268,8 +106275,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 8
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &1557335853
 CapsuleCollider:
@@ -110584,8 +110592,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &1614932057
 CapsuleCollider:
@@ -130144,8 +130153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 200
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &1891051177
 CapsuleCollider:
@@ -137995,8 +138005,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 3
+  followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.5
   hitAnimTime: 0.6
 --- !u!136 &1986713113
 CapsuleCollider:
