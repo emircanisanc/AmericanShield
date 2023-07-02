@@ -6,6 +6,9 @@ using UnityEngine;
 public class Meteor : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
+    [SerializeField] GameObject gfx;
+    [SerializeField] GameObject particle;
+    [SerializeField] float areaRadius = 2f;
 
     Rigidbody rb;
     Vector3 direction;
@@ -18,6 +21,8 @@ public class Meteor : MonoBehaviour
     public void MoveDirection(Vector3 direction)
     {
         this.direction = direction;
+        gfx.SetActive(true);
+        particle.SetActive(false);
         gameObject.SetActive(true);
     }
 
@@ -30,11 +35,29 @@ public class Meteor : MonoBehaviour
     {
         if (!other.CompareTag("Player"))
         {
-            if (other.TryGetComponent<IDamageable>(out var damageable))
+            rb.velocity = Vector3.zero;
+            gfx.SetActive(false);
+            particle.SetActive(true);
+
+            Collider[] colliders = Physics.OverlapSphere(transform.position, areaRadius);
+
+            foreach (Collider collider in colliders)
             {
-                damageable.ApplyDamage(200);
+                if (collider.CompareTag("Player"))
+                    continue;
+                if (collider.TryGetComponent<IDamageable>(out var damageable))
+                {
+                    damageable.ApplyDamage(200);
+                }
             }
-            gameObject.SetActive(false);
-        }    
+
+            Invoke("CloseObj", 1f);
+        }
+    }
+
+
+    private void CloseObj()
+    {
+        gameObject.SetActive(false);
     }
 }

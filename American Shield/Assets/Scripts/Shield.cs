@@ -15,6 +15,8 @@ public class Shield : WeaponBase
     [SerializeField] float minX = -0.2f, minY = -0.2f, maxY = 0.8f;
     [SerializeField] Meteor meteor;
     [SerializeField] LayerMask meteorLayer;
+    [SerializeField] float meteorDuration = 2.2f;
+    [SerializeField] float meteorUpDistance = 5f;
 
     public bool IsBlocking { get { return isHoldingShield && Time.time - holdingStartTime < 0.5f; } }
 
@@ -218,7 +220,7 @@ public class Shield : WeaponBase
         {
             isShieldOnHand = true;
             ReleaseShield();
-            nextMeteorTime = Time.time + 3f;
+            nextMeteorTime = Time.time + meteorDuration;
         }
     }
 
@@ -268,12 +270,12 @@ public class Shield : WeaponBase
     {
         RaycastHit raycastHit;
         Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
-        if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance * 4, meteorLayer))
+        if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance, meteorLayer))
         {
-            Vector3 spawnPosition = raycastHit.point + Vector3.up * 5f;
+            Vector3 spawnPosition = raycastHit.point + Vector3.up * meteorUpDistance;
             meteor.transform.position = spawnPosition;
             meteor.MoveDirection((raycastHit.point - spawnPosition).normalized);
-            nextMeteorTime = Time.time + 3f;
+            nextMeteorTime = Time.time + meteorDuration;
         }
     }
 
