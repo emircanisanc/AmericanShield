@@ -24057,6 +24057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 4
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -24811,6 +24812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 5
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
@@ -36569,6 +36571,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 756c36ade2d881346ad2d654be076cb6,
         type: 2}
+    - target: {fileID: 9072172708891862364, guid: d4210d02a14e37c4b831cecbddbee857,
+        type: 3}
+      propertyPath: expOnLevelEnd
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 9072172708891862365, guid: d4210d02a14e37c4b831cecbddbee857,
         type: 3}
       propertyPath: m_Pivot.x
@@ -45036,6 +45043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   movementSpeed: 4
+  followDistnace: 2
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6

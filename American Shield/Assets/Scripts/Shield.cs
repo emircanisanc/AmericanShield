@@ -220,7 +220,7 @@ public class Shield : WeaponBase
         {
             isShieldOnHand = true;
             ReleaseShield();
-            nextMeteorTime = Time.time + meteorDuration;
+            nextMeteorTime = Time.time + meteorDuration/5;
         }
     }
 

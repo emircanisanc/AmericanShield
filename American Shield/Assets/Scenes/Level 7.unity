@@ -8271,6 +8271,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 771440403304322615, guid: d4210d02a14e37c4b831cecbddbee857,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159179470303531279, guid: d4210d02a14e37c4b831cecbddbee857,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551062572207198692, guid: d4210d02a14e37c4b831cecbddbee857,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475911490446729425, guid: d4210d02a14e37c4b831cecbddbee857,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419208256643636393, guid: d4210d02a14e37c4b831cecbddbee857,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898398838736357729, guid: d4210d02a14e37c4b831cecbddbee857,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9072172708891862361, guid: d4210d02a14e37c4b831cecbddbee857,
         type: 3}
       propertyPath: m_Name
@@ -8387,7 +8417,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2804235983779940360, guid: d4210d02a14e37c4b831cecbddbee857, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d4210d02a14e37c4b831cecbddbee857, type: 3}
 --- !u!1 &313300902
 GameObject:

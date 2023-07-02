@@ -73,8 +73,8 @@ public class InfinityGlow : WeaponBase
     {
         RaycastHit raycastHit;
         LaserLine.enabled = true;
-        LaserLine.SetPosition(0, LaserOrigin.position);
-        LaserLine.SetPosition(1, LaserOrigin.forward * glowLaserDistance + transform.position);
+        LaserLine.SetPosition(0, waterSpawnPoint.position);
+        LaserLine.SetPosition(1, waterSpawnPoint.forward * glowLaserDistance + transform.position);
         if (Physics.Raycast(transform.position, LaserOrigin.forward, out raycastHit, glowLaserDistance, enemyLayer))
         {
             if (Time.time >= nextDamageTime)
@@ -101,17 +101,17 @@ public class InfinityGlow : WeaponBase
     {
         if (Time.time >= nextDamageTime)
         {
-            Vector3 shootDirection = LaserOrigin.forward;
+            Vector3 shootDirection = waterSpawnPoint.forward;
             RaycastHit raycastHit;
-            if (Physics.Raycast(transform.position, LaserOrigin.forward, out raycastHit, glowLaserDistance, enemyLayer))
+            if (Physics.Raycast(transform.position, waterSpawnPoint.forward, out raycastHit, glowLaserDistance, enemyLayer))
             {
-                water.transform.position = LaserOrigin.position;
+                water.transform.position = waterSpawnPoint.position;
                 shootDirection = (raycastHit.point - transform.position).normalized;
                 water.MoveDirection(shootDirection);
             }
             else
             {
-                water.transform.position = LaserOrigin.position;
+                water.transform.position = waterSpawnPoint.position;
                 water.MoveDirection(shootDirection);
             }
             // SPAWN WATER BULLET

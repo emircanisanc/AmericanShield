@@ -24,6 +24,7 @@ public class Meteor : MonoBehaviour
         gfx.SetActive(true);
         particle.SetActive(false);
         gameObject.SetActive(true);
+        enabled=true;
     }
 
     void Update()
@@ -36,6 +37,7 @@ public class Meteor : MonoBehaviour
         if (!other.CompareTag("Player"))
         {
             rb.velocity = Vector3.zero;
+            enabled=false;
             gfx.SetActive(false);
             particle.SetActive(true);
 

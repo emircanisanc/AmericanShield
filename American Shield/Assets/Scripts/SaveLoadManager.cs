@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SaveLoadManager
 {
-    public const string DEFAULTWEAPONNAME = "Shield";
-    public const int DEFAULTWEAPONLEVEL = 3;
+    public const string DEFAULTWEAPONNAME = "InfinityGauntlet";
+    public const int DEFAULTWEAPONLEVEL = 1;
     public const int GAMEDEFAULTLEVEL = 1;
 
     public static string CurrentWeaponName()
