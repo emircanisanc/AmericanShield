@@ -21,6 +21,7 @@ public class WeaponSelector : MonoBehaviour
     [SerializeField] GameObject startBtn;
     [SerializeField] GameObject unlockWeaponPanel;
     [SerializeField] Image unlockWeaponImage;
+    [SerializeField] float distanceWeaponSlector = 1f;
     [SerializeField] List<UnlockWeapon> unlockWeapons;
 
 
@@ -47,10 +48,10 @@ public class WeaponSelector : MonoBehaviour
             {
 
             }
-            Instantiate(weaponSO.modelPrefab, transform).transform.localPosition = new Vector3(i * 0.7f, 0, 0);
+            Instantiate(weaponSO.modelPrefab, transform).transform.localPosition = new Vector3(i * distanceWeaponSlector, 0, 0);
             i++;
         }
-        var x = currentSelected * 0.7f;
+        var x = currentSelected * distanceWeaponSlector;
         camPos = cameraTransform.position;
         cameraTransform.position = new Vector3(x, camPos.y, camPos.z);
         weaponCount = weaponList.weapons.Count;
@@ -74,7 +75,7 @@ public class WeaponSelector : MonoBehaviour
         if (currentCursor + 1 < weaponCount)
         {
             currentCursor++;
-            Vector3 targetPos = cameraTransform.position + new Vector3(0.7f, 0, 0);
+            Vector3 targetPos = cameraTransform.position + new Vector3(distanceWeaponSlector, 0, 0);
             cameraTransform.DOMove(targetPos, 0.5f);
             CheckStartButtonActive();
         }
@@ -85,7 +86,7 @@ public class WeaponSelector : MonoBehaviour
         if (currentCursor - 1 >= 0)
         {
             currentCursor--;
-            Vector3 targetPos = cameraTransform.position + new Vector3(-0.7f, 0, 0);
+            Vector3 targetPos = cameraTransform.position + new Vector3(-distanceWeaponSlector, 0, 0);
             cameraTransform.DOMove(targetPos, 0.5f);
             CheckStartButtonActive();
         }
