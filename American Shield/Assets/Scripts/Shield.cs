@@ -217,7 +217,7 @@ public class Shield : WeaponBase
         if (skill == 2)
         {
             isShieldOnHand = true;
-            isHoldingShield = false;
+            ReleaseShield();
             nextMeteorTime = Time.time + 3f;
         }
     }
@@ -247,6 +247,7 @@ public class Shield : WeaponBase
 
     public override void SkillThree()
     {
+          //isHoldingShield = false;
         HandleMeteorSpawn();
     }
 
