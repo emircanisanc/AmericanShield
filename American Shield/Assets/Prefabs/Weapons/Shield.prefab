@@ -85,7 +85,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1763c140e7caf4eb2a38686bf8a790ec, type: 3}
   - {fileID: 21300000, guid: cf33b4f588e264da0b0d1264f151e2ff, type: 3}
   shieldThrowDistance: 12
-  shieldMoveDuration: 0.8
+  shieldMoveDuration: 0.7
   damage: 100
   dragSpeed: 0.7
   enemyLayer:

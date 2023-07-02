@@ -13172,6 +13172,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8407153892177705890}
   - component: {fileID: 2471378026080149976}
+  - component: {fileID: 1901118759504422192}
+  - component: {fileID: 47608433279790463}
   m_Layer: 0
   m_Name: VictimPeople
   m_TagString: Untagged
@@ -13225,3 +13227,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1901118759504422192
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216587228061049112}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.88, y: 2, z: 7.17}
+  m_Center: {x: 0, y: 0.62, z: 6.15}
+--- !u!114 &47608433279790463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216587228061049112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6087c123142e0184e86dfff799334995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleObjects:
+  - {fileID: 4625619071593198930}
+  - {fileID: 6110013559162995008}
+  - {fileID: 3829949485681220261}
+  - {fileID: 7807476222798819423}

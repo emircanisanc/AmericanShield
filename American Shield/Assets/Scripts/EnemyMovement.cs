@@ -11,6 +11,10 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float attackDuration;
     [SerializeField] private float hitAnimTime = 0.5f;
+    
+    
+    private Collider[] colliders;
+
 
     public Action OnEnemyDie;
 
@@ -30,6 +34,10 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
+        if (colliders == null)
+        {
+            colliders = GetComponents<Collider>();
+        }
         //  StartCoroutine(AnimationsStarts());
     }
 
@@ -111,7 +119,10 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         animator.SetBool("isAttack", false);
         distanceWalk = false;
         distanceAttack = false;
-        GetComponent<Collider>().enabled = false;
+        foreach (var coll in colliders)
+        {
+            coll.enabled = false;
+        }
         rigidBody.isKinematic = true;
         Invoke("CallDieEvent", 2f);
         Destroy(this.gameObject, 3f);
