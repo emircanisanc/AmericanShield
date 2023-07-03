@@ -12,6 +12,8 @@ public class TrapButton : MonoBehaviour, IDamageable
     {
         if (isActive)
         {
+            // animator
+
             isActive = false;
             foreach (Animator animator in trapAnimator)
             {

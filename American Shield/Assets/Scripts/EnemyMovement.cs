@@ -146,6 +146,9 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     }
     public void ApplyDamage(int damage)
     {
+        if (!enabled)
+            return;
+            
         enemyHp -= damage;
         if (enemyHp <= 0 && isLife)
         {

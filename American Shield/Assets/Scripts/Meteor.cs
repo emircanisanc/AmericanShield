@@ -6,6 +6,7 @@ using UnityEngine;
 public class Meteor : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
+    [SerializeField] int damage = 200;
     [SerializeField] GameObject gfx;
     [SerializeField] GameObject particle;
     [SerializeField] float areaRadius = 2f;
@@ -49,7 +50,7 @@ public class Meteor : MonoBehaviour
                     continue;
                 if (collider.TryGetComponent<IDamageable>(out var damageable))
                 {
-                    damageable.ApplyDamage(200);
+                    damageable.ApplyDamage(damage);
                 }
             }
 

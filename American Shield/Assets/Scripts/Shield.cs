@@ -141,7 +141,7 @@ public class Shield : WeaponBase
         if (other.TryGetComponent<IDamageable>(out var damageable))
         {
             if (!isShieldOnHand)
-                damageable.ApplyDamage(damage);
+                ApplyDamageToEnemy(damageable, other.ClosestPoint(transform.position));
         }
     }
 
@@ -287,6 +287,22 @@ public class Shield : WeaponBase
     public override void SkillFive()
     {
         
+    }
+
+    protected void ApplyDamageToEnemy(IDamageable damageable, Vector3 pos)
+    {
+        damageable.ApplyDamage(damage);
+        if (!hitParticleObj.activeSelf)
+        {
+            hitParticleObj.transform.position = pos;
+            hitParticleObj.SetActive(true);
+            Invoke("CloseParticle", 1f);
+        }
+    }
+
+    protected void CloseParticle()
+    {
+        hitParticleObj.SetActive(false);
     }
 
 }

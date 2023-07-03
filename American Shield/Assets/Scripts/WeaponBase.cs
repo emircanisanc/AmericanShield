@@ -7,12 +7,22 @@ public abstract class WeaponBase : MonoBehaviour
     [SerializeField] int level = 1;
     [SerializeField] WeaponSO weaponSO;
     [SerializeField] Sprite[] skillImages;
+    [SerializeField] GameObject[] stones;
+    [SerializeField] protected GameObject hitParticleObj;
 
     protected int activeSkill = 0;
 
     protected virtual void Awake()
     {
         level = SaveLoadManager.WeaponLevel(weaponSO.weaponName);
+        for (int i = 0; i < level; i++)
+        {
+            stones[i].SetActive(true);
+        }
+        hitParticleObj.SetActive(false);
+        GameObject obj = Instantiate(hitParticleObj);
+        hitParticleObj = obj;
+
         PlayerManager.OnPlayerDie += DisableWeapon;
     }
 
@@ -62,5 +72,7 @@ public abstract class WeaponBase : MonoBehaviour
     public abstract void SkillThree();
     public abstract void SkillFour();
     public abstract void SkillFive();
+
+
 
 }
