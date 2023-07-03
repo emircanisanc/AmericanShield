@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/WeaponSelect.unity
     guid: 02093e87c8a0974489566d606b6295cb
   - enabled: 1
+    path: Assets/Scenes/WeaponUpgrade.unity
+    guid: 17b1e6e7d131ab945856134586ba217d
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
