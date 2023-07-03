@@ -294,7 +294,6 @@ GameObject:
   - component: {fileID: 8934637970579404596}
   - component: {fileID: 8934637970579404597}
   - component: {fileID: 8934637970579404618}
-  - component: {fileID: 3427509108083996495}
   m_Layer: 6
   m_Name: Enemy_02 (5) 8
   m_TagString: Untagged
@@ -394,19 +393,6 @@ Rigidbody:
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &8934637970579404618
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8934637970579404619}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.86
-  m_Center: {x: 0, y: 0.87, z: 1.21}
---- !u!135 &3427509108083996495
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

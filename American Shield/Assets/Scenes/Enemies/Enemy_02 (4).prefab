@@ -94,7 +94,7 @@ MonoBehaviour:
   movementSpeed: 10
   followDistnace: 2
   rotationSpeed: 10
-  attackDuration: 0
+  attackDuration: 0.6
   hitAnimTime: 0.6
 --- !u!54 &7343128289173119152
 Rigidbody:

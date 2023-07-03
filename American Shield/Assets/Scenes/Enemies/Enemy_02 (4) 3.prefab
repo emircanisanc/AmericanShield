@@ -10073,7 +10073,6 @@ GameObject:
   - component: {fileID: 1169106755530448694}
   - component: {fileID: 1169106755530448693}
   - component: {fileID: 1169106755530448691}
-  - component: {fileID: -1924907995025542979}
   m_Layer: 6
   m_Name: Enemy_02 (4) 3
   m_TagString: Untagged
@@ -10154,7 +10153,7 @@ MonoBehaviour:
   movementSpeed: 6
   followDistnace: 2
   rotationSpeed: 25
-  attackDuration: 0
+  attackDuration: 0.6
   hitAnimTime: 0.6
 --- !u!54 &1169106755530448693
 Rigidbody:
@@ -10173,19 +10172,6 @@ Rigidbody:
   m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!135 &1169106755530448691
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169106755530448683}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.86
-  m_Center: {x: 0, y: 0.87, z: 1.21}
---- !u!135 &-1924907995025542979
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

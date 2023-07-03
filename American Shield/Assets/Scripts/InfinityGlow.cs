@@ -8,7 +8,7 @@ using DG.Tweening;
 public class InfinityGlow : WeaponBase
 {
     [SerializeField] float glowLaserDistance = 15f;
-    [SerializeField] float laserDuration = 2.5f;
+    [SerializeField] float laserWidth = 2.5f;
     [SerializeField] int damage = 100;
     [SerializeField] float dragSpeed = 0.5f;
     [SerializeField] LayerMask enemyLayer;
@@ -74,23 +74,26 @@ public class InfinityGlow : WeaponBase
         RaycastHit raycastHit;
         LaserLine.enabled = true;
         LaserLine.SetPosition(0, waterSpawnPoint.position);
-        LaserLine.SetPosition(1, waterSpawnPoint.forward * glowLaserDistance + transform.position);
-        if (Physics.Raycast(transform.position, LaserOrigin.forward, out raycastHit, glowLaserDistance, enemyLayer))
+        Vector3 dir = LaserOrigin.forward + new Vector3(-transform.localPosition.x / 2.5f, 0, 0);
+        LaserLine.SetPosition(1, dir * glowLaserDistance + transform.position);
+
+        LaserLine.startWidth = 0.050f * laserWidth + Mathf.Sin(Time.time) / 23;
+        if (Time.time >= nextDamageTime)
         {
-            if (Time.time >= nextDamageTime)
+            if (Physics.Raycast(transform.position, dir, out raycastHit, glowLaserDistance, enemyLayer))
             {
                 if (raycastHit.transform.TryGetComponent<IDamageable>(out var damageable))
                 {
-                    damageable.ApplyDamage(damage);
+                    ApplyDamageToEnemy(damageable, raycastHit.point);
                     nextDamageTime = Time.time + 0.5f;
                 }
-                Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
-                if (Physics.Raycast(ray, out raycastHit, glowLaserDistance, enemyLayer))
+            }
+            Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
+            if (Physics.Raycast(ray, out raycastHit, glowLaserDistance, enemyLayer))
+            {
+                if (raycastHit.transform.TryGetComponent<TrapButton>(out var trapButton))
                 {
-                    if (raycastHit.transform.TryGetComponent<TrapButton>(out var trapButton))
-                    {
-                        trapButton.ApplyDamage(200);
-                    }
+                    trapButton.ApplyDamage(200);
                 }
             }
         }
@@ -99,10 +102,10 @@ public class InfinityGlow : WeaponBase
 
     private void WaterShoot()
     {
+        RaycastHit raycastHit;
         if (Time.time >= nextDamageTime)
         {
             Vector3 shootDirection = waterSpawnPoint.forward;
-            RaycastHit raycastHit;
             if (Physics.Raycast(transform.position, waterSpawnPoint.forward, out raycastHit, glowLaserDistance, enemyLayer))
             {
                 water.transform.position = waterSpawnPoint.position;
@@ -116,6 +119,14 @@ public class InfinityGlow : WeaponBase
             }
             // SPAWN WATER BULLET
             nextDamageTime = Time.time + 2f;
+        }
+        Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
+        if (Physics.Raycast(ray, out raycastHit, glowLaserDistance, enemyLayer))
+        {
+            if (raycastHit.transform.TryGetComponent<TrapButton>(out var trapButton))
+            {
+                trapButton.ApplyDamage(200);
+            }
         }
     }
 
@@ -188,6 +199,22 @@ public class InfinityGlow : WeaponBase
     public override void SkillFive()
     {
 
+    }
+
+    protected void ApplyDamageToEnemy(IDamageable damageable, Vector3 pos)
+    {
+        damageable.ApplyDamage(damage);
+        if (!hitParticleObj.activeSelf)
+        {
+            hitParticleObj.transform.position = pos;
+            hitParticleObj.SetActive(true);
+            Invoke("CloseParticle", 1f);
+        }
+    }
+
+    protected void CloseParticle()
+    {
+        hitParticleObj.SetActive(false);
     }
 
 }
