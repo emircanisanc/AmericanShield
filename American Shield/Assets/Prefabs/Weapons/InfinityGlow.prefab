@@ -1968,6 +1968,8 @@ MonoBehaviour:
   - {fileID: 339551722011158997}
   - {fileID: 2274904811387429375}
   - {fileID: 2221402973458484023}
+  hitParticleObj: {fileID: 1065914088194554248, guid: 3969c55365fea184081d91280ce349e1,
+    type: 3}
   glowLaserDistance: 15
   laserWidth: 1.5
   damage: 50

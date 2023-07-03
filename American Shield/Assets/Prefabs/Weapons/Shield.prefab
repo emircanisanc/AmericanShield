@@ -88,6 +88,8 @@ MonoBehaviour:
   - {fileID: 5527365661596534163}
   - {fileID: 6165710733436634344}
   - {fileID: 2885338544716752056}
+  hitParticleObj: {fileID: 1065914088194554248, guid: 3969c55365fea184081d91280ce349e1,
+    type: 3}
   shieldThrowDistance: 12
   shieldMoveDuration: 0.7
   damage: 100
