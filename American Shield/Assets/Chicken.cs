@@ -22,11 +22,12 @@ public class Chicken : MonoBehaviour
             Vector3 hedefNokta = transformNoktalari[currentNoktaIndex].position;
             Vector3 yon = hedefNokta - transform.position;
             Quaternion hedefRotasyon = Quaternion.LookRotation(new Vector3(yon.x, 0, yon.z));
-            float donmeHizi = 5f; // Dönme hızını istediğiniz gibi ayarlayabilirsiniz
+            float donmeHizi = 15f; // Dönme hızını istediğiniz gibi ayarlayabilirsiniz
 
             while (transform.position != hedefNokta)
             {
                 // Karakteri yavaşça hedef noktaya doğru ilerlet
+
                 transform.position = Vector3.MoveTowards(transform.position, hedefNokta, Time.deltaTime);
 
                 // Karakterin yönünü yavaşça hedef noktaya doğru döndür
@@ -36,13 +37,13 @@ public class Chicken : MonoBehaviour
             }
 
             // Walk animasyonunu çalıştır
-            animator.SetBool("IsWalking", false);
+            animator.SetBool("isWalking", false);
 
             // Belirli bir süre beklemek için bekleme süresi kadar bekleyin
             yield return new WaitForSeconds(beklemeSure);
 
             // Idle animasyonunu çalıştır
-            animator.SetBool("IsWalking", true);
+            animator.SetBool("isWalking", true);
 
             // Bir sonraki noktaya ilerle
             currentNoktaIndex = (currentNoktaIndex + 1) % transformNoktalari.Length;
