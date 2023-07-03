@@ -165,7 +165,7 @@ MonoBehaviour:
   damage: 170
   gfx: {fileID: 1197484623280071789}
   particle: {fileID: 5392904254482248045}
-  areaRadius: 3.5
+  areaRadius: 0.5
 --- !u!1 &5392904254482248045
 GameObject:
   m_ObjectHideFlags: 0
