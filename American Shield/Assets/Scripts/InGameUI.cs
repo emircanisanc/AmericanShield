@@ -21,8 +21,11 @@ public class InGameUI : MonoBehaviour
     [SerializeField] SkillButton[] skillButtons;
     [SerializeField] int expOnLevelEnd;
     [SerializeField] Image levelUpBar;
+    [SerializeField] GameObject weaponIsMaxLevelText;
+    [SerializeField] GameObject levelUpParent;
     [SerializeField] GameObject nextLevelBtn;
     [SerializeField] GameObject levelUpText;
+    [SerializeField] GameObject openWeaponCraftBtn;
     [SerializeField] WeaponListSO weaponList;
 
     void Awake()
@@ -64,40 +67,42 @@ public class InGameUI : MonoBehaviour
         winGameUI.SetActive(true);
         
         string weaponName = SaveLoadManager.CurrentWeaponName();
+        WeaponSO weaponSO = weaponList.weapons.Find(x => x.weaponName == weaponName);
+        int currentLevel = SaveLoadManager.WeaponLevel(weaponName);
+        if (weaponSO.maxLevel == currentLevel)
+        {
+            weaponIsMaxLevelText.SetActive(true);
+            levelUpParent.SetActive(false);
+            ShowNextLevelButton();
+            return;
+        }
+
+
         int currentExp = SaveLoadManager.WeaponExp(weaponName);
         levelUpBar.fillAmount = (float)currentExp / 100;
         int targetExp = currentExp + expOnLevelEnd;
         targetExp = Mathf.Clamp(targetExp, 0, 100);
         if (targetExp == 100)
         {
-            WeaponSO weaponSO = weaponList.weapons.Find(x => x.weaponName == weaponName);
-            int currentLevel = SaveLoadManager.WeaponLevel(weaponName);
-            if (weaponSO.maxLevel == currentLevel)
-            {
-                SaveLoadManager.SaveWeaponExp(weaponName, targetExp);
-                ShowNextLevelButton(false);
-                return;
-            }
-            else
-            {
-                SaveLoadManager.SaveWeaponExp(weaponName, 0);
-                SaveLoadManager.SaveWeaponLevel(weaponName, currentLevel + 1);
-            }
+            SaveLoadManager.SaveWeaponExp(weaponName, 0);
+            SaveLoadManager.SaveWeaponLevel(weaponName, currentLevel + 1);
+            levelUpBar.DOFillAmount((float)targetExp / 100f, 1.5f).OnComplete(() => OnWeaponLevelUp());
         }
         else
         {
             SaveLoadManager.SaveWeaponExp(weaponName, targetExp);
+            levelUpBar.DOFillAmount((float)targetExp / 100f, 1.5f).OnComplete(() => ShowNextLevelButton());
         }
-        levelUpBar.DOFillAmount((float)targetExp / 100f, 1.5f).OnComplete(() => ShowNextLevelButton(targetExp == 100));
-
     }
 
-    private void ShowNextLevelButton(bool isWeaponLevelUp)
+    private void OnWeaponLevelUp()
     {
-        if (isWeaponLevelUp)
-        {
-            levelUpText.SetActive(true);
-        }
+        levelUpText.SetActive(true);
+        openWeaponCraftBtn.SetActive(true);
+    }
+
+    private void ShowNextLevelButton()
+    {
         nextLevelBtn.SetActive(true);
     }
 
@@ -109,6 +114,11 @@ public class InGameUI : MonoBehaviour
     public void OpenLevelSelection()
     {
         SceneManager.LoadScene("WeaponSelect");
+    }
+
+    public void OpenWeaponCraft()
+    {
+        SceneManager.LoadScene("WeaponUpgrade");
     }
 
     public void Restart()

@@ -48,7 +48,9 @@ public class WeaponSelector : MonoBehaviour
             {
 
             }
-            Instantiate(weaponSO.modelPrefab, transform).transform.localPosition = new Vector3(i * distanceWeaponSlector, 0, 0);
+            GameObject weaponObj = Instantiate(weaponSO.modelPrefab, transform);
+            weaponObj.transform.localPosition = new Vector3(i * distanceWeaponSlector, 0, 0);
+            weaponObj.GetComponent<WeaponStoneSpawner>().LoadStones(SaveLoadManager.WeaponLevel(weaponSO.weaponName));
             i++;
         }
         var x = currentSelected * distanceWeaponSlector;
