@@ -1,55 +1,51 @@
+using System.Collections;
 using UnityEngine;
 
 public class Chicken : MonoBehaviour
 {
-    public float moveSpeed = 0.5f;          // Neneyi ne kadar hızlı hareket ettireceğimizi belirleyen değişken
-    public float idleTime = 3f;           // Bekleme süresi
+    public Transform[] transformNoktalari;
+    public float beklemeSure = 5f;
+    public Animator animator;
 
-    private Animator animator;            // Animator bileşenine referans
-    private bool isMoving = false;        // Nenenin hareket halinde olup olmadığını kontrol eden değişken
-    private Vector3 targetPosition;       // Hedef noktanın konumu
+    private int currentNoktaIndex = 0;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();   // Animator bileşenini al
-        SetRandomTargetPosition();               // İlk hedef noktayı belirle
+        StartCoroutine(PlayerHareket());
     }
 
-    private void Update()
+    private IEnumerator PlayerHareket()
     {
-        if (!isMoving)
+        while (true)
         {
-            // Bekleme süresi bittiğinde idle animasyonunu oynat
-            idleTime -= Time.deltaTime;
-            if (idleTime <= 0)
-            {
-                animator.SetTrigger("Idle");  // "Idle" animasyonunu tetikle
-                idleTime = 3f;  // Bekleme süresini sıfırla veya istediğiniz süreyle güncelle
-            }
-        }
-        else
-        {
-            // Hedefe doğru hareket et ve walk animasyonunu oynat
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-            animator.SetTrigger("Walk");  // "Walk" animasyonunu tetikle
+            // Hedef noktaya doğru ilerle
+            Vector3 hedefNokta = transformNoktalari[currentNoktaIndex].position;
+            Vector3 yon = hedefNokta - transform.position;
+            Quaternion hedefRotasyon = Quaternion.LookRotation(new Vector3(yon.x, 0, yon.z));
+            float donmeHizi = 5f; // Dönme hızını istediğiniz gibi ayarlayabilirsiniz
 
-            // Hedef noktaya ulaşıldığında yeni hedef nokta belirle
-            if (transform.position == targetPosition)
+            while (transform.position != hedefNokta)
             {
-              Invoke("SetRandomTargetPosition",3f);
-            }
-        }
-    }
+                // Karakteri yavaşça hedef noktaya doğru ilerlet
+                transform.position = Vector3.MoveTowards(transform.position, hedefNokta, Time.deltaTime);
 
-    private void SetRandomTargetPosition()
-    {
-        // Rasgele bir nokta seç ve hedef olarak belirle
-        float randomX = Random.Range(-2f, 2f);  
-        float randomZ = Random.Range(-2f, 2f);
-        float randomY = transform.position.y;  
-        targetPosition = new Vector3(randomX, randomY, randomZ);
-        // Hedef noktaya doğru dön ve hareketi başlat
-        transform.LookAt(targetPosition);
-        isMoving = true;
+                // Karakterin yönünü yavaşça hedef noktaya doğru döndür
+                transform.rotation = Quaternion.Slerp(transform.rotation, hedefRotasyon, donmeHizi * Time.deltaTime);
+
+                yield return null;
+            }
+
+            // Walk animasyonunu çalıştır
+            animator.SetBool("IsWalking", false);
+
+            // Belirli bir süre beklemek için bekleme süresi kadar bekleyin
+            yield return new WaitForSeconds(beklemeSure);
+
+            // Idle animasyonunu çalıştır
+            animator.SetBool("IsWalking", true);
+
+            // Bir sonraki noktaya ilerle
+            currentNoktaIndex = (currentNoktaIndex + 1) % transformNoktalari.Length;
+        }
     }
 }

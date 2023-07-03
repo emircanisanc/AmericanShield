@@ -27,6 +27,9 @@ ModelImporter:
   - first:
       74: 1109199322983957935
     second: chicken-rig|walking
+  - first:
+      74: -1105627935609810724
+    second: chicken-rig|pecking (1)
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -39,7 +42,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
-    motionNodeName: 
+    motionNodeName: chicken-rig
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -57,18 +60,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: chicken-rig|idle
-      takeName: chicken-rig|idle
+      name: chicken-rig|pecking (1)
+      takeName: chicken-rig|pecking
       internalID: 0
       firstFrame: 0
-      lastFrame: 27
+      lastFrame: 21
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
