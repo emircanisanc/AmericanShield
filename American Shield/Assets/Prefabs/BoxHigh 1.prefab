@@ -19506,7 +19506,6 @@ GameObject:
   - component: {fileID: 9181627309665909865}
   - component: {fileID: 9059622606905425023}
   - component: {fileID: 9059463325795333779}
-  - component: {fileID: 9145993130509423179}
   m_Layer: 0
   m_Name: CFX_Explosion_B_Smoke+Text
   m_TagString: FxTemporaire
@@ -19523,7 +19522,7 @@ Transform:
   m_GameObject: {fileID: 9186400499108008207}
   m_LocalRotation: {x: -0, y: -0, z: -0.000000014901159, w: 1}
   m_LocalPosition: {x: 0, y: 0.34099996, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9181425925684577211}
@@ -24213,19 +24212,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &9145993130509423179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9186400499108008207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnlyDeactivate: 0
 --- !u!1 &9186933045907437655
 GameObject:
   m_ObjectHideFlags: 0

@@ -8772,7 +8772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 200
   movementSpeed: 2
-  followDistnace: 3.5
+  followDistnace: 3
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6

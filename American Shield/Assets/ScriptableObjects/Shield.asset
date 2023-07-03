@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   prefab: {fileID: 810741608463539607, guid: d76ee6dfe0a24f344a2bec6bc1149a10, type: 3}
-  modelPrefab: {fileID: 810741608463539607, guid: bbb1fc9278462c143bf3c18d1f66370f,
+  modelPrefab: {fileID: 810741608463539607, guid: 4030be348109a7b4a861d6b5567e747f,
     type: 3}
   unlockImage: {fileID: 21300000, guid: 0e99f111b7c700b479ae1c46a1c6e2b5, type: 3}
   weaponName: Shield

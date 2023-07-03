@@ -4979,7 +4979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 250
   movementSpeed: 5
-  followDistnace: 3.5
+  followDistnace: 3
   rotationSpeed: 20
   attackDuration: 0.6
   hitAnimTime: 0.6
