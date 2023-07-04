@@ -308,7 +308,7 @@ MonoBehaviour:
   meteorUpDistance: 5
   hitClip: {fileID: 8300000, guid: 2e68909035cbe9449a378e78f3bcb9f4, type: 3}
   throwClip: {fileID: 8300000, guid: 1917f3d9c81670840ac23d37fa41d275, type: 3}
-  blockClip: {fileID: 8300000, guid: 0e6d4d48fef8bd34f9a18cc6b7ed156c, type: 3}
+  blockClip: {fileID: 8300000, guid: 2e68909035cbe9449a378e78f3bcb9f4, type: 3}
 --- !u!95 &3152186049231448353
 Animator:
   serializedVersion: 4

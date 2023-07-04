@@ -70,7 +70,8 @@ public class InGameUI : MonoBehaviour
     private void ShowWinGameUI()
     {
         winGameUI.SetActive(true);
-        wonEffect.SetActive(true);
+        if (wonEffect)
+            wonEffect.SetActive(true);
         AudioManager.PlayClipAtCamera(winGameClip);
 
         string weaponName = SaveLoadManager.CurrentWeaponName();
