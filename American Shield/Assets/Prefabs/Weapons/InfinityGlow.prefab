@@ -1972,7 +1972,7 @@ MonoBehaviour:
   glowLaserDistance: 15
   laserWidth: 1.5
   damage: 50
-  dragSpeed: 2
+  dragSpeed: 0.8
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

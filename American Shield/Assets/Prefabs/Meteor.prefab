@@ -162,9 +162,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  damage: 200
   gfx: {fileID: 1197484623280071789}
   particle: {fileID: 8307373321355588063}
   areaRadius: 3.5
+  audioClip: {fileID: 8300000, guid: 19ee23220d478354ca29f732069ff0d0, type: 3}
 --- !u!1 &8307373321355588063
 GameObject:
   m_ObjectHideFlags: 0

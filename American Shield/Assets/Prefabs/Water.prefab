@@ -166,6 +166,7 @@ MonoBehaviour:
   gfx: {fileID: 1197484623280071789}
   particle: {fileID: 5392904254482248045}
   areaRadius: 0.2
+  audioClip: {fileID: 8300000, guid: 19ee23220d478354ca29f732069ff0d0, type: 3}
 --- !u!1 &5392904254482248045
 GameObject:
   m_ObjectHideFlags: 0

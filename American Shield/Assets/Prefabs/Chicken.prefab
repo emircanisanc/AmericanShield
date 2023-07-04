@@ -52468,7 +52468,7 @@ MonoBehaviour:
   - {fileID: 3642554502515647475}
   - {fileID: 3642554501157242766}
   destroyTime: 1.3
-  colliderToClose: {fileID: 7100284391833188009}
+  explosionClip: {fileID: 8300000, guid: 9df4c2e414fd7d847978300d2a2b0213, type: 3}
 --- !u!65 &7100284391833188009
 BoxCollider:
   m_ObjectHideFlags: 0

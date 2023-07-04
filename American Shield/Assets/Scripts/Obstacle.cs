@@ -6,6 +6,7 @@ public class Obstacle : MonoBehaviour, IDamageable
 {
     [SerializeField] GameObject[] toggleObjects;
     [SerializeField] float destroyTime = 1.3f;
+    [SerializeField] AudioClip explosionClip;
     Collider[] collidersToClose;
 
     void Awake()
@@ -21,6 +22,7 @@ public class Obstacle : MonoBehaviour, IDamageable
             return false;
         
         isDone = true;
+        AudioManager.PlayClip(explosionClip, transform.position);
         foreach (var coll in collidersToClose)
             coll.enabled = false;
         foreach (var obj in toggleObjects)

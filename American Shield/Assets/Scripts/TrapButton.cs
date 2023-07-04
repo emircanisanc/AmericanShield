@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrapButton : MonoBehaviour, IDamageable
 {
-
+    [SerializeField] AudioClip hitClip;
     public List<Animator> trapAnimator;
     bool isActive = true;
 
@@ -19,6 +19,7 @@ public class TrapButton : MonoBehaviour, IDamageable
             {
                 animator.SetTrigger("isPush");
             }
+            AudioManager.PlayClip(hitClip, transform.position);
             return false;
         }
         return false;

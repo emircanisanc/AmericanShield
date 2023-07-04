@@ -27,6 +27,8 @@ public class InGameUI : MonoBehaviour
     [SerializeField] GameObject levelUpText;
     [SerializeField] GameObject openWeaponCraftBtn;
     [SerializeField] WeaponListSO weaponList;
+    [SerializeField] AudioClip loseGameClip;
+    [SerializeField] AudioClip winGameClip;
 
     void Awake()
     {
@@ -59,12 +61,14 @@ public class InGameUI : MonoBehaviour
 
     private void ShowLoseGameUI()
     {
+        AudioManager.PlayClipAtCamera(loseGameClip);
         loseGameUI.SetActive(true);
     }
 
     private void ShowWinGameUI()
     {
         winGameUI.SetActive(true);
+        AudioManager.PlayClipAtCamera(winGameClip);
         
         string weaponName = SaveLoadManager.CurrentWeaponName();
         WeaponSO weaponSO = weaponList.weapons.Find(x => x.weaponName == weaponName);

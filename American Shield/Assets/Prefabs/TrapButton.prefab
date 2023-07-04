@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d90f9b528680b488e2181d9eb43d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitClip: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
   trapAnimator:
   - {fileID: 0}
 --- !u!1 &5068837442055199591

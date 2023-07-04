@@ -47,15 +47,10 @@ public class InfinityGlow : WeaponBase
         {
             LaserLine.enabled = false;
         }
-        if (skill == 1)
-        {
-            nextDamageTime = Time.time + 2f;
-        }
     }
 
-    private void MoveAround()
+    private void MoveAround(Touch touch)
     {
-        Touch touch = Input.GetTouch(0);
         touchEndPos = touch.position;
         Vector3 touchInput = touch.deltaPosition;
 
@@ -134,9 +129,9 @@ public class InfinityGlow : WeaponBase
     {
         if (isHolding)
         {
-            if (Input.touchCount > 0)
+            if (PlayerController.IsTouchingScreen(out var touch))
             {
-                MoveAround();
+                MoveAround(touch);
                 LaserFire();
             }
             else
@@ -147,9 +142,9 @@ public class InfinityGlow : WeaponBase
         }
         else
         {
-            if (Input.touchCount > 0)
+            if (PlayerController.IsTouchingScreen(out var touch))
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                if (touch.phase == TouchPhase.Began)
                 {
                     isHolding = true;
                     holdingStartTime = Time.time;
@@ -163,21 +158,21 @@ public class InfinityGlow : WeaponBase
     {
         if (isHolding)
         {
-            if (Input.touchCount > 0)
+            if (PlayerController.IsTouchingScreen(out var touch))
             {
-                MoveAround();
-                WaterShoot();
+                MoveAround(touch);
             }
             else
             {
+                WaterShoot();
                 isHolding = false;
             }
         }
         else
         {
-            if (Input.touchCount > 0)
+            if (PlayerController.IsTouchingScreen(out var touch))
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                if (touch.phase == TouchPhase.Began)
                 {
                     isHolding = true;
                     holdingStartTime = Time.time;

@@ -14728,6 +14728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33baa41886117cb47978079af2b19166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitClip: {fileID: 8300000, guid: 70e02441ad3cd8f488092b6a4933e446, type: 3}
 --- !u!4 &5369859263944063474
 Transform:
   m_ObjectHideFlags: 0

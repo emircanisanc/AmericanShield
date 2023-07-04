@@ -306,6 +306,8 @@ MonoBehaviour:
     m_Bits: 65
   meteorDuration: 2.2
   meteorUpDistance: 5
+  hitClip: {fileID: 8300000, guid: 4fb135d3c45ee7343ba34122f8adc35f, type: 3}
+  blockClip: {fileID: 8300000, guid: 0e6d4d48fef8bd34f9a18cc6b7ed156c, type: 3}
 --- !u!95 &3152186049231448353
 Animator:
   serializedVersion: 4

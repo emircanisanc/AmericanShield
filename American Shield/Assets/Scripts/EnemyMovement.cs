@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float attackDuration;
     [SerializeField] private float hitAnimTime = 0.5f;
+    [SerializeField] AudioClip attackHitClip;
     
     
     private Collider[] colliders;
@@ -68,6 +69,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         if (!isAttackBlocked && player.TryGetComponent<IDamageable>(out var damageable))
         {
             damageable.ApplyDamage(5);
+            AudioManager.PlayClip(attackHitClip, transform.position);
         }
     }
 

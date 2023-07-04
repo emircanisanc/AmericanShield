@@ -10,8 +10,10 @@ public class Meteor : MonoBehaviour
     [SerializeField] GameObject gfx;
     [SerializeField] GameObject particle;
     [SerializeField] float areaRadius = 2f;
+    [SerializeField] AudioClip audioClip;
 
     Rigidbody rb;
+    bool isDone;
     Vector3 direction;
 
     void Awake()
@@ -22,6 +24,7 @@ public class Meteor : MonoBehaviour
     public void MoveDirection(Vector3 direction)
     {
         this.direction = direction;
+        isDone = false;
         gfx.SetActive(true);
         particle.SetActive(false);
         gameObject.SetActive(true);
@@ -35,8 +38,10 @@ public class Meteor : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player") && !other.CompareTag("Weapon"))
+        if (!other.CompareTag("Player") && !other.CompareTag("Weapon") && !isDone)
         {
+            isDone = true;
+            AudioManager.PlayClip(audioClip, transform.position);
             rb.velocity = Vector3.zero;
             enabled=false;
             gfx.SetActive(false);

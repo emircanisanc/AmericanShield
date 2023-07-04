@@ -17,6 +17,8 @@ public class Shield : WeaponBase
     [SerializeField] LayerMask meteorLayer;
     [SerializeField] float meteorDuration = 2.2f;
     [SerializeField] float meteorUpDistance = 5f;
+    public AudioClip hitClip;
+    public AudioClip blockClip;
 
     public bool IsBlocking { get { return isHoldingShield && Time.time - holdingStartTime < 0.5f; } }
 
@@ -46,9 +48,9 @@ public class Shield : WeaponBase
 
     private void HandleHoldingShield()
     {
-        if (Input.touchCount > 0)
+        if (PlayerController.IsTouchingScreen(out var touch))
         {
-            MoveShield();
+            MoveShield(touch);
         }
         else
         {
@@ -88,9 +90,8 @@ public class Shield : WeaponBase
 
     private void HandleNotHoldingShield()
     {
-        if (Input.touchCount > 0)
+        if (PlayerController.IsTouchingScreen(out var touch))
         {
-            Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
                 StartHolding();
@@ -107,7 +108,7 @@ public class Shield : WeaponBase
 
     private void HandleFloatingShield()
     {
-        if (Input.touchCount > 0 && !isShieldTurningBack)
+        if (PlayerController.IsTouchingScreen() && !isShieldTurningBack)
         {
             sequence.Kill();
             TurnBack();
@@ -154,6 +155,7 @@ public class Shield : WeaponBase
             {
                 if (IsBlocking)
                 {
+                    AudioManager.PlayClip(blockClip, transform.position);
                     damager.TurnAttackBack();
                     animator.SetTrigger("BlockAttack");
                 }
@@ -166,9 +168,8 @@ public class Shield : WeaponBase
         }
     }
 
-    private void MoveShield()
+    private void MoveShield(Touch touch)
     {
-        Touch touch = Input.GetTouch(0);
         touchEndPos = touch.position;
         Vector3 touchInput = touch.deltaPosition;
 
@@ -198,9 +199,8 @@ public class Shield : WeaponBase
             }
             else
             {
-                if (Input.touchCount > 0)
+                if (PlayerController.IsTouchingScreen(out var touch))
                 {
-                    Touch touch = Input.GetTouch(0);
                     if (touch.phase == TouchPhase.Began)
                     {
                         isHoldingShield = true;
@@ -221,7 +221,6 @@ public class Shield : WeaponBase
         {
             isShieldOnHand = true;
             ReleaseShield();
-            nextMeteorTime = Time.time + meteorDuration/5;
         }
     }
 
@@ -233,9 +232,9 @@ public class Shield : WeaponBase
         
         if (isHoldingShield)
         {
-            if (Input.touchCount > 0)
+            if (PlayerController.IsTouchingScreen(out var touch))
             {
-                MoveShield();
+                MoveShield(touch);
             }
             else
             {
@@ -256,9 +255,8 @@ public class Shield : WeaponBase
 
     private void HandleMeteorSpawn()
     {
-        if (Input.touchCount > 0)
+        if (PlayerController.IsTouchingScreen(out var touch))
         {
-            Touch touch = Input.GetTouch(0);
             touchEndPos = touch.position;
             if (Time.time >= nextMeteorTime && !meteor.gameObject.activeSelf)
             {
@@ -294,6 +292,7 @@ public class Shield : WeaponBase
     {
         if (damageable.ApplyDamage(damage))
         {
+            AudioManager.PlayClip(hitClip, transform.position);
             if (!hitParticleObj.activeSelf)
             {
                 hitParticleObj.transform.position = pos;
