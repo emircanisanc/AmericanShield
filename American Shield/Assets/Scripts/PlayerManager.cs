@@ -9,12 +9,13 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     bool isDead;
 
-    public void ApplyDamage(int damage)
+    public bool ApplyDamage(int damage)
     {
         if (isDead)
-            return;
+            return false;
         
         isDead = true;
         OnPlayerDie?.Invoke();
+        return true;
     }
 }

@@ -52405,9 +52405,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3642554502439213113}
-  - component: {fileID: 3642554502439213119}
   - component: {fileID: 3642554502439213118}
   - component: {fileID: 1093453120361813930}
+  - component: {fileID: 7100284391833188009}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -52432,24 +52432,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3642554502439213119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3642554502439213112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cbf462b1b9dbf742ac81b5220a5824b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transformNoktalari:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  beklemeSure: 3
-  animator: {fileID: 3642554502439213118}
 --- !u!95 &3642554502439213118
 Animator:
   serializedVersion: 4
@@ -52486,6 +52468,20 @@ MonoBehaviour:
   - {fileID: 3642554502515647475}
   - {fileID: 3642554501157242766}
   destroyTime: 1.3
+  colliderToClose: {fileID: 7100284391833188009}
+--- !u!65 &7100284391833188009
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642554502439213112}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.31, z: 0}
 --- !u!1 &3642554502513825760
 GameObject:
   m_ObjectHideFlags: 0

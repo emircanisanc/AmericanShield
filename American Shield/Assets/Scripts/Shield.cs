@@ -41,6 +41,7 @@ public class Shield : WeaponBase
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
         shieldStartLocalPos = Vector3.zero;
+        shieldStartAngle = transform.localEulerAngles;
     }
 
     private void HandleHoldingShield()
@@ -57,7 +58,6 @@ public class Shield : WeaponBase
 
     private void ThrowShield()
     {
-        shieldStartAngle = transform.eulerAngles;
         RaycastHit raycastHit;
         Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
         if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance, enemyLayer))
@@ -120,12 +120,13 @@ public class Shield : WeaponBase
         isShieldTurningBack = true;
         sequence = DOTween.Sequence();
         sequence.Append(transform.DOLocalMove(shieldStartLocalPos, shieldMoveDuration / 2));
-        sequence.Join(transform.DORotate(shieldStartAngle, shieldMoveDuration / 2));
+        sequence.Join(transform.DOLocalRotate(shieldStartAngle, shieldMoveDuration / 2));
         sequence.OnComplete(() => OnShieldTurnedBack());
     }
 
     private void OnShieldTurnedBack()
     {
+        transform.localEulerAngles = shieldStartAngle;
         animator.SetTrigger("Idle");
         isShieldOnHand = true;
         isShieldTurningBack = false;
@@ -270,7 +271,7 @@ public class Shield : WeaponBase
     {
         RaycastHit raycastHit;
         Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
-        if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance, meteorLayer))
+        if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance * 2, meteorLayer))
         {
             Vector3 spawnPosition = raycastHit.point + Vector3.up * meteorUpDistance;
             meteor.transform.position = spawnPosition;
@@ -291,12 +292,14 @@ public class Shield : WeaponBase
 
     protected void ApplyDamageToEnemy(IDamageable damageable, Vector3 pos)
     {
-        damageable.ApplyDamage(damage);
-        if (!hitParticleObj.activeSelf)
+        if (damageable.ApplyDamage(damage))
         {
-            hitParticleObj.transform.position = pos;
-            hitParticleObj.SetActive(true);
-            Invoke("CloseParticle", 1f);
+            if (!hitParticleObj.activeSelf)
+            {
+                hitParticleObj.transform.position = pos;
+                hitParticleObj.SetActive(true);
+                Invoke("CloseParticle", 0.6f);
+            }
         }
     }
 

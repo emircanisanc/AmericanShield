@@ -35,7 +35,7 @@ public class Meteor : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("Player") && !other.CompareTag("Weapon"))
         {
             rb.velocity = Vector3.zero;
             enabled=false;

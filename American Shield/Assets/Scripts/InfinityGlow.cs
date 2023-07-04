@@ -74,7 +74,7 @@ public class InfinityGlow : WeaponBase
         RaycastHit raycastHit;
         LaserLine.enabled = true;
         LaserLine.SetPosition(0, waterSpawnPoint.position);
-        Vector3 dir = LaserOrigin.forward + new Vector3(-transform.localPosition.x / 2.5f, 0, 0);
+        Vector3 dir = LaserOrigin.forward + transform.right * transform.localPosition.x + transform.up * transform.localPosition.y / 2;
         LaserLine.SetPosition(1, dir * glowLaserDistance + transform.position);
 
         LaserLine.startWidth = 0.050f * laserWidth + Mathf.Sin(Time.time) / 23;
@@ -105,7 +105,7 @@ public class InfinityGlow : WeaponBase
         RaycastHit raycastHit;
         if (Time.time >= nextDamageTime)
         {
-            Vector3 shootDirection = waterSpawnPoint.forward;
+            Vector3 shootDirection = waterSpawnPoint.forward + transform.right * transform.localPosition.x + transform.up * transform.localPosition.y / 2;;
             if (Physics.Raycast(transform.position, waterSpawnPoint.forward, out raycastHit, glowLaserDistance, enemyLayer))
             {
                 water.transform.position = waterSpawnPoint.position;
@@ -203,12 +203,14 @@ public class InfinityGlow : WeaponBase
 
     protected void ApplyDamageToEnemy(IDamageable damageable, Vector3 pos)
     {
-        damageable.ApplyDamage(damage);
-        if (!hitParticleObj.activeSelf)
+        if (damageable.ApplyDamage(damage))
         {
-            hitParticleObj.transform.position = pos;
-            hitParticleObj.SetActive(true);
-            Invoke("CloseParticle", 1f);
+            if (!hitParticleObj.activeSelf)
+            {
+                hitParticleObj.transform.position = pos;
+                hitParticleObj.SetActive(true);
+                Invoke("CloseParticle", 0.6f);
+            }
         }
     }
 

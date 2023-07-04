@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 1197484623826487838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.19, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1197484623280071790}
@@ -161,11 +161,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ceacb4a1fd56f4f84215090d31292d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 15
   damage: 170
   gfx: {fileID: 1197484623280071789}
   particle: {fileID: 5392904254482248045}
-  areaRadius: 0.5
+  areaRadius: 0.2
 --- !u!1 &5392904254482248045
 GameObject:
   m_ObjectHideFlags: 0

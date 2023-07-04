@@ -34,10 +34,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
-        if (colliders == null)
-        {
-            colliders = GetComponents<Collider>();
-        }
+        colliders = GetComponents<Collider>();
         //  StartCoroutine(AnimationsStarts());
     }
 
@@ -144,22 +141,26 @@ public class EnemyMovement : MonoBehaviour, IDamageable, IDamager
             Walk();
         }
     }
-    public void ApplyDamage(int damage)
+    public bool ApplyDamage(int damage)
     {
         if (!enabled)
-            return;
+            return false;
             
         enemyHp -= damage;
-        if (enemyHp <= 0 && isLife)
+        if (enemyHp <= 0)
         {
-            isLife = false;
-            DeadStates();
-            animator.SetTrigger("isDie");
+            if (isLife)
+            {
+                isLife = false;
+                DeadStates();
+                animator.SetTrigger("isDie");
+            }
         }
         else
         {
             GetHit();
         }
+        return true;
     }
     IEnumerator GetHitAnim()
     {

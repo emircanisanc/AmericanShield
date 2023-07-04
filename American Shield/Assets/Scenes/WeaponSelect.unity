@@ -2232,7 +2232,7 @@ MonoBehaviour:
   unlockWeaponImage: {fileID: 1685803944}
   distanceWeaponSlector: 1
   unlockWeapons:
-  - unlockLevel: 3
+  - unlockLevel: 5
     weaponName: Shield
 --- !u!1001 &1830354996
 PrefabInstance:

@@ -2697,6 +2697,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'InGameUI '
       objectReference: {fileID: 0}
+    - target: {fileID: 9072172708891862364, guid: d4210d02a14e37c4b831cecbddbee857,
+        type: 3}
+      propertyPath: expOnLevelEnd
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 9072172708891862365, guid: d4210d02a14e37c4b831cecbddbee857,
         type: 3}
       propertyPath: m_Pivot.x

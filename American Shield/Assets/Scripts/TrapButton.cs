@@ -8,7 +8,7 @@ public class TrapButton : MonoBehaviour, IDamageable
     public List<Animator> trapAnimator;
     bool isActive = true;
 
-    public void ApplyDamage(int damage)
+    public bool ApplyDamage(int damage)
     {
         if (isActive)
         {
@@ -19,7 +19,8 @@ public class TrapButton : MonoBehaviour, IDamageable
             {
                 animator.SetTrigger("isPush");
             }
-
+            return false;
         }
+        return false;
     }
 }
