@@ -279,9 +279,9 @@ MonoBehaviour:
   level: 1
   weaponSO: {fileID: 11400000, guid: eefd52c27e355c74aadb6cb1b0fb41bc, type: 2}
   skillImages:
-  - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
-  - {fileID: 21300000, guid: 3c7dc21b9cfc64a28a0db252abd7f3ad, type: 3}
   - {fileID: 21300000, guid: 1763c140e7caf4eb2a38686bf8a790ec, type: 3}
+  - {fileID: 21300000, guid: b3d8dbe835c404179842f9f9595f2bf0, type: 3}
+  - {fileID: 21300000, guid: 3c6f5b7a54bd84489ba7d655c5b7b812, type: 3}
   - {fileID: 21300000, guid: cf33b4f588e264da0b0d1264f151e2ff, type: 3}
   stones:
   - {fileID: 2985849487509679710}
@@ -306,7 +306,8 @@ MonoBehaviour:
     m_Bits: 65
   meteorDuration: 2.2
   meteorUpDistance: 5
-  hitClip: {fileID: 8300000, guid: 4fb135d3c45ee7343ba34122f8adc35f, type: 3}
+  hitClip: {fileID: 8300000, guid: 2e68909035cbe9449a378e78f3bcb9f4, type: 3}
+  throwClip: {fileID: 8300000, guid: 1917f3d9c81670840ac23d37fa41d275, type: 3}
   blockClip: {fileID: 8300000, guid: 0e6d4d48fef8bd34f9a18cc6b7ed156c, type: 3}
 --- !u!95 &3152186049231448353
 Animator:
@@ -679,9 +680,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9710d443dd18a0409fbaf2d24d89a27, type: 2}
   - {fileID: 2100000, guid: cd6670bcb96615e4495c01969da912eb, type: 2}
-  - {fileID: 2100000, guid: 2b5809e618bdf7f4abe85e02050de57b, type: 2}
+  - {fileID: 2100000, guid: e9710d443dd18a0409fbaf2d24d89a27, type: 2}
+  - {fileID: 2100000, guid: 55644acc8f97213488a9fd08cd89f945, type: 2}
   - {fileID: 2100000, guid: 55644acc8f97213488a9fd08cd89f945, type: 2}
   - {fileID: 2100000, guid: f6e88351e4f68234a8a379bb01aceb32, type: 2}
   m_StaticBatchInfo:

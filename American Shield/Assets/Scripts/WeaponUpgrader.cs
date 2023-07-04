@@ -11,6 +11,7 @@ public class WeaponUpgrader : MonoBehaviour
     [SerializeField] Transform stoneSpawnTransform;
     [SerializeField] GameObject upgradeBtn;
     [SerializeField] GameObject nextBtn;
+    [SerializeField] GameObject UpgradeEffect;
     [SerializeField] float upgradeDuration = 1.5f;
     [SerializeField] AudioClip upgradeClip;
 
@@ -41,6 +42,7 @@ public class WeaponUpgrader : MonoBehaviour
 
     public void Upgrade()
     {
+        UpgradeEffect.SetActive(true);
         upgradeBtn.SetActive(false);
         AudioManager.PlayClipAtCamera(upgradeClip);
         stoneTransform.DOMove(stoneTargetPoint, upgradeDuration).SetEase(Ease.Flash).OnComplete(() => OnUpgradeCompleted());

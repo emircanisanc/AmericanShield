@@ -5733,7 +5733,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682162546320057976}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.42, y: -5.89, z: 33.95}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
@@ -5796,11 +5796,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 100
-  movementSpeed: 5
+  movementSpeed: 3
   followDistnace: 3
   rotationSpeed: 25
   attackDuration: 0.6
   hitAnimTime: 0.6
+  attackHitClip: {fileID: 0}
 --- !u!54 &682162546320057958
 Rigidbody:
   m_ObjectHideFlags: 0

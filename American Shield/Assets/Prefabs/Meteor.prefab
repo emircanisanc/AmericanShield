@@ -166,7 +166,7 @@ MonoBehaviour:
   gfx: {fileID: 1197484623280071789}
   particle: {fileID: 8307373321355588063}
   areaRadius: 3.5
-  audioClip: {fileID: 8300000, guid: 19ee23220d478354ca29f732069ff0d0, type: 3}
+  audioClip: {fileID: 8300000, guid: 69f2e50d616b6284daa1f1cf767bbe06, type: 3}
 --- !u!1 &8307373321355588063
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,9 +270,53 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.010315895
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.040806293
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.1117742
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
       propertyPath: simulationSpeed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.08279125
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19900000, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
       propertyPath: m_Materials.Array.size
@@ -328,6 +372,18 @@ PrefabInstance:
       value: CFX3_Fire_Explosion
       objectReference: {fileID: 0}
     - target: {fileID: 1134129239631916, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143295807935202, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621998821329316, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947327994267328, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}

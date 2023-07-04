@@ -18,6 +18,7 @@ public class Shield : WeaponBase
     [SerializeField] float meteorDuration = 2.2f;
     [SerializeField] float meteorUpDistance = 5f;
     public AudioClip hitClip;
+    public AudioClip throwClip;
     public AudioClip blockClip;
 
     public bool IsBlocking { get { return isHoldingShield && Time.time - holdingStartTime < 0.5f; } }
@@ -60,10 +61,12 @@ public class Shield : WeaponBase
 
     private void ThrowShield()
     {
+        AudioManager.PlayClip(throwClip, transform.position);
         RaycastHit raycastHit;
         Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
         if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance, enemyLayer))
         {
+
             MoveShieldTo(raycastHit.point);
         }
         else
@@ -224,12 +227,12 @@ public class Shield : WeaponBase
         }
     }
 
-    
+
     public override void SkillTwo()
     {
         if (!isShieldOnHand)
             return;
-        
+
         if (isHoldingShield)
         {
             if (PlayerController.IsTouchingScreen(out var touch))
@@ -249,7 +252,7 @@ public class Shield : WeaponBase
 
     public override void SkillThree()
     {
-          //isHoldingShield = false;
+        //isHoldingShield = false;
         HandleMeteorSpawn();
     }
 
@@ -280,12 +283,12 @@ public class Shield : WeaponBase
 
     public override void SkillFour()
     {
-        
+
     }
-    
+
     public override void SkillFive()
     {
-        
+
     }
 
     protected void ApplyDamageToEnemy(IDamageable damageable, Vector3 pos)

@@ -29,15 +29,17 @@ public class InGameUI : MonoBehaviour
     [SerializeField] WeaponListSO weaponList;
     [SerializeField] AudioClip loseGameClip;
     [SerializeField] AudioClip winGameClip;
+    [SerializeField] GameObject wonEffect;
+    [SerializeField] GameObject loseEffect;
 
     void Awake()
     {
         Instance = this;
 
-        foreach(var skillButton in skillButtons)
+        foreach (var skillButton in skillButtons)
         {
             skillButton.gameObject.SetActive(false);
-        }    
+        }
     }
 
     void Start()
@@ -68,8 +70,9 @@ public class InGameUI : MonoBehaviour
     private void ShowWinGameUI()
     {
         winGameUI.SetActive(true);
+        wonEffect.SetActive(true);
         AudioManager.PlayClipAtCamera(winGameClip);
-        
+
         string weaponName = SaveLoadManager.CurrentWeaponName();
         WeaponSO weaponSO = weaponList.weapons.Find(x => x.weaponName == weaponName);
         int currentLevel = SaveLoadManager.WeaponLevel(weaponName);

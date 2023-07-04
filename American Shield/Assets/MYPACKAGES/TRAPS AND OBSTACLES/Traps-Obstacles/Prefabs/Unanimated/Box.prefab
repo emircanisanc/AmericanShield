@@ -9457,7 +9457,7 @@ MonoBehaviour:
   - {fileID: 4563688004565719087}
   - {fileID: 4815427565792392354}
   destroyTime: 1.3
-  explosionClip: {fileID: 8300000, guid: 19ee23220d478354ca29f732069ff0d0, type: 3}
+  explosionClip: {fileID: 8300000, guid: 73badcbf65bf18c4ba703ab4aec8779d, type: 3}
 --- !u!54 &7219727809435478959
 Rigidbody:
   m_ObjectHideFlags: 0

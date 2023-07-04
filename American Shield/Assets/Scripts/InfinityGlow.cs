@@ -26,6 +26,8 @@ public class InfinityGlow : WeaponBase
     float holdingStartTime;
     float nextDamageTime;
     bool isHolding;
+    public AudioClip hitClip;
+    public AudioClip blockClip;
 
     protected override void Awake()
     {
@@ -63,7 +65,7 @@ public class InfinityGlow : WeaponBase
         newPosition.x = Mathf.Clamp(newPosition.x, minX, Mathf.Abs(minX));
         transform.localPosition = new Vector3(newPosition.x, newPosition.y, transform.localPosition.z);
     }
-
+    private float audioCooldown = 0.1f;
     private void LaserFire()
     {
         RaycastHit raycastHit;
@@ -71,10 +73,16 @@ public class InfinityGlow : WeaponBase
         LaserLine.SetPosition(0, waterSpawnPoint.position);
         Vector3 dir = LaserOrigin.forward + transform.right * transform.localPosition.x + transform.up * transform.localPosition.y / 2;
         LaserLine.SetPosition(1, dir * glowLaserDistance + transform.position);
-
+        audioCooldown -= Time.deltaTime;
         LaserLine.startWidth = 0.050f * laserWidth + Mathf.Sin(Time.time) / 23;
         if (Time.time >= nextDamageTime)
         {
+            if (audioCooldown <= 0f)
+            {
+                AudioManager.PlayClip(hitClip, transform.position);
+                audioCooldown = 0.2f; // İstenilen bekleme süresi
+            }
+
             if (Physics.Raycast(transform.position, dir, out raycastHit, glowLaserDistance, enemyLayer))
             {
                 if (raycastHit.transform.TryGetComponent<IDamageable>(out var damageable))
@@ -100,7 +108,7 @@ public class InfinityGlow : WeaponBase
         RaycastHit raycastHit;
         if (Time.time >= nextDamageTime)
         {
-            Vector3 shootDirection = waterSpawnPoint.forward + transform.right * transform.localPosition.x + transform.up * transform.localPosition.y / 2;;
+            Vector3 shootDirection = waterSpawnPoint.forward + transform.right * transform.localPosition.x + transform.up * transform.localPosition.y / 2; ;
             if (Physics.Raycast(transform.position, waterSpawnPoint.forward, out raycastHit, glowLaserDistance, enemyLayer))
             {
                 water.transform.position = waterSpawnPoint.position;
@@ -133,6 +141,7 @@ public class InfinityGlow : WeaponBase
             {
                 MoveAround(touch);
                 LaserFire();
+
             }
             else
             {
