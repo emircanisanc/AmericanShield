@@ -7983,6 +7983,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1850033207}
     m_Modifications:
+    - target: {fileID: 450780747284836457, guid: bc14c871d981ecb4a9beb52789489b62,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 450780747284836458, guid: bc14c871d981ecb4a9beb52789489b62,
         type: 3}
       propertyPath: m_RootOrder
@@ -8642,6 +8647,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1850033207}
     m_Modifications:
+    - target: {fileID: 2383291899259160036, guid: bbf597257da1e31439a6968ecfb1d0ee,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2383291899259160056, guid: bbf597257da1e31439a6968ecfb1d0ee,
         type: 3}
       propertyPath: m_Name
@@ -8980,6 +8990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211518425442139834, guid: fcb31e07262b76048a4c3106f3a623dc,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4211518425442139839, guid: fcb31e07262b76048a4c3106f3a623dc,
         type: 3}
@@ -9596,6 +9611,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4491317068808647192, guid: c9ed9754eba5bb8419dd94516250e52f,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4491317068808647199, guid: c9ed9754eba5bb8419dd94516250e52f,
         type: 3}
       propertyPath: m_Name
@@ -9652,6 +9672,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1850033207}
     m_Modifications:
+    - target: {fileID: 4653081535041482947, guid: fc0ffaa4269747b4bbc53f6f7bc9e989,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4653081535041482950, guid: fc0ffaa4269747b4bbc53f6f7bc9e989,
         type: 3}
       propertyPath: m_RootOrder
@@ -9845,6 +9870,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126217968860943182, guid: 5e7414911bdacc547a2fd7f73db87c76,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e7414911bdacc547a2fd7f73db87c76, type: 3}
@@ -10087,6 +10117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33baa41886117cb47978079af2b19166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitClip: {fileID: 0}
 --- !u!23 &6436881617207262316
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10153,6 +10184,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1185760036}
     m_Modifications:
+    - target: {fileID: 6506277449680245770, guid: 38ae336363fa5e8418ef3a69865dd0c7,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6506277449680245771, guid: 38ae336363fa5e8418ef3a69865dd0c7,
         type: 3}
       propertyPath: m_RootOrder
@@ -10349,6 +10385,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549981479736001689, guid: c777d7e84e785a04aaadedd2c0078cc1,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7549981479736001690, guid: c777d7e84e785a04aaadedd2c0078cc1,
         type: 3}
@@ -10583,6 +10624,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7945667732204305731, guid: 3ae831feab2a82941a504cabeb17d69a,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8757098269533470666, guid: 3ae831feab2a82941a504cabeb17d69a,
         type: 3}
       propertyPath: m_Name
@@ -10712,6 +10758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33baa41886117cb47978079af2b19166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitClip: {fileID: 0}
 --- !u!33 &8609719616737814071
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10800,3 +10847,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33baa41886117cb47978079af2b19166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitClip: {fileID: 0}

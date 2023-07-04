@@ -6074,6 +6074,7 @@ MonoBehaviour:
   rotationSpeed: 10
   attackDuration: 0.6
   hitAnimTime: 0.6
+  attackHitClip: {fileID: 8300000, guid: 84e427d6b66ab4066b6a4dcd0ce819ee, type: 3}
 --- !u!54 &3941553011865757929
 Rigidbody:
   m_ObjectHideFlags: 0

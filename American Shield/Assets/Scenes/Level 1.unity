@@ -1543,7 +1543,7 @@ MonoBehaviour:
     - moveState: 0
       target: {fileID: 943401311}
       movingObject: {fileID: 1625346407}
-      duration: 3
+      duration: 2
       append: 1
     - moveState: 1
       target: {fileID: 201848951}
@@ -1553,7 +1553,7 @@ MonoBehaviour:
     - moveState: 0
       target: {fileID: 1592451869}
       movingObject: {fileID: 3374916778431952532}
-      duration: 2
+      duration: 1.5
       append: 1
 --- !u!4 &971211332
 Transform:
