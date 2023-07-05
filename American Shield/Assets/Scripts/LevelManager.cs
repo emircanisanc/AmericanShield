@@ -13,14 +13,29 @@ public class LevelManager : MonoBehaviour
     public static Action OnLevelEnd;
     int currentState = -1;
     int currentEnemyCount;
+    bool isActive = true;
 
     void Start()
     {
+        PlayerManager.OnPlayerDie += StopLevel;
         NextState();
+    }
+
+    void OnDisable()
+    {
+        PlayerManager.OnPlayerDie -= StopLevel;   
+    }
+
+    private void StopLevel()
+    {
+        isActive = false;
     }
 
     private void Counter()
     {
+        if (!isActive)
+            return;
+            
         currentEnemyCount--;
         if (currentEnemyCount == 0)
         {
@@ -30,6 +45,9 @@ public class LevelManager : MonoBehaviour
 
     private void StartState()
     {
+        if (!isActive)
+            return;
+
         Sequence sequence = DOTween.Sequence();
         foreach (var moveState in moveStateGroups[currentState].playerMoveStates)
         {
@@ -62,6 +80,9 @@ public class LevelManager : MonoBehaviour
 
     private void NextState()
     {
+        if (!isActive)
+            return;
+
         currentState++;
         if (enemyGroups.Count > currentState)
         {
@@ -80,6 +101,9 @@ public class LevelManager : MonoBehaviour
 
     public void EndLevel()
     {
+        if (!isActive)
+            return;
+
         SaveLoadManager.SetLevel(SaveLoadManager.CurrentLevel() + 1);
         OnLevelEnd?.Invoke();
     }
