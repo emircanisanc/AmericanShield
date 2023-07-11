@@ -71,7 +71,7 @@ public class InfinityGlow : WeaponBase
         RaycastHit raycastHit;
         LaserLine.enabled = true;
         LaserLine.SetPosition(0, waterSpawnPoint.position);
-        Vector3 dir = LaserOrigin.forward + transform.right * transform.localPosition.x + transform.up * transform.localPosition.y / 2;
+        Vector3 dir = LaserOrigin.forward - transform.right * transform.localPosition.x + transform.up * transform.localPosition.y / 2;
         LaserLine.SetPosition(1, dir * glowLaserDistance + transform.position);
         audioCooldown -= Time.deltaTime;
         LaserLine.startWidth = 0.050f * laserWidth + Mathf.Sin(Time.time) / 23;
