@@ -261,6 +261,7 @@ public class Shield : WeaponBase
     {
         if (PlayerController.IsTouchingScreen(out var touch))
         {
+            MoveShield(touch);
             touchEndPos = touch.position;
             if (Time.time >= nextMeteorTime && !meteor.gameObject.activeSelf)
             {
@@ -275,6 +276,7 @@ public class Shield : WeaponBase
         Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
         if (Physics.Raycast(ray, out raycastHit, shieldThrowDistance * 2, meteorLayer))
         {
+            animator.SetTrigger("Meteor");
             Vector3 spawnPosition = raycastHit.point + Vector3.up * meteorUpDistance;
             meteor.transform.position = spawnPosition;
             meteor.MoveDirection((raycastHit.point - spawnPosition).normalized);

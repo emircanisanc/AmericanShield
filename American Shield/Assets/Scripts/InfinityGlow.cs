@@ -15,6 +15,7 @@ public class InfinityGlow : WeaponBase
     [SerializeField] float minX, minY, maxY;
     [SerializeField] Meteor water;
     [SerializeField] Transform waterSpawnPoint;
+    [SerializeField] Transform laserEndParticle;
 
 
     LineRenderer LaserLine;
@@ -28,6 +29,7 @@ public class InfinityGlow : WeaponBase
     bool isHolding;
     public AudioClip hitClip;
     public AudioClip blockClip;
+    Vector3 laserEndPos;
 
     protected override void Awake()
     {
@@ -70,11 +72,9 @@ public class InfinityGlow : WeaponBase
     {
         RaycastHit raycastHit;
         LaserLine.enabled = true;
-        LaserLine.SetPosition(0, waterSpawnPoint.position);
         Vector3 dir = LaserOrigin.forward - transform.right * transform.localPosition.x + transform.up * transform.localPosition.y / 2;
-        LaserLine.SetPosition(1, dir * glowLaserDistance + transform.position);
         audioCooldown -= Time.deltaTime;
-        LaserLine.startWidth = 0.050f * laserWidth + Mathf.Sin(Time.time) / 23;
+        LaserLine.startWidth = 0.050f * laserWidth + Mathf.Sin(Time.time) / 50;
         if (Time.time >= nextDamageTime)
         {
             if (audioCooldown <= 0f)
@@ -89,7 +89,12 @@ public class InfinityGlow : WeaponBase
                 {
                     ApplyDamageToEnemy(damageable, raycastHit.point);
                     nextDamageTime = Time.time + 0.5f;
+                    laserEndPos = raycastHit.point;
                 }
+            }
+            else
+            {
+                laserEndPos = dir * glowLaserDistance + transform.position;
             }
             Ray ray = mainCamera.ScreenPointToRay(touchEndPos);
             if (Physics.Raycast(ray, out raycastHit, glowLaserDistance, enemyLayer))
@@ -99,6 +104,13 @@ public class InfinityGlow : WeaponBase
                     trapButton.ApplyDamage(200);
                 }
             }
+        }
+        else
+        {
+            if (Physics.Raycast(transform.position, dir, out raycastHit, glowLaserDistance, enemyLayer))
+                laserEndPos = raycastHit.point;
+            else
+                laserEndPos = dir * glowLaserDistance + transform.position;
         }
 
     }
@@ -133,6 +145,13 @@ public class InfinityGlow : WeaponBase
         }
     }
 
+    void LateUpdate()
+    {
+        LaserLine.SetPosition(0, waterSpawnPoint.position);
+        LaserLine.SetPosition(1, laserEndPos);
+        laserEndParticle.position = laserEndPos;
+    }
+
     public override void SkillOne()
     {
         if (isHolding)
@@ -146,6 +165,7 @@ public class InfinityGlow : WeaponBase
             else
             {
                 LaserLine.enabled = false;
+                laserEndParticle.gameObject.SetActive(false);
                 isHolding = false;
             }
         }
@@ -156,6 +176,7 @@ public class InfinityGlow : WeaponBase
                 if (touch.phase == TouchPhase.Began)
                 {
                     isHolding = true;
+                    laserEndParticle.gameObject.SetActive(true);
                     holdingStartTime = Time.time;
                 }
             }
